@@ -10,29 +10,30 @@
  */
 
 export const MODEL_FILES = {
-  glasses: 'ADITI 3D.glb',
+  glasses: 'ADITI_3D.glb',
   hw01: 'HW01_RaspberryPi_Zero2W.glb',
   hw02: 'HW02_Camera_Module3.glb',
-  hw05_06: 'HW05 + HW06.glb',
-  hw07_08_09: 'HW07 + HW08 + HW09.glb',
-  hw10_11_12: 'HW10 + HW11 + HW12.glb',
-  hw15_23_28: 'HW15 + HW23 + HW28.glb',
+  
+  hw05_06: "HW05_HW06.glb",
+  hw07_08_09: "HW07_HW08_HW09.glb",
+
+  hw10_11_12: 'HW10_HW11_HW12.glb',
+  hw15_23_28: 'HW15_HW23_HW28.glb',
   hw18_21_22:
     'HW18_IMUHW21_HapticMotorHW22_HapticDriver.glb',
-  hw19: 'HW19_GNSS_M10_Antenna (2).glb',
-  hw20: 'HW20 VL53L1X ToF.glb',
+  hw19: 'HW19_GNSS_M10_Antenna_2.glb',
+  hw20: 'HW20_VL53L1X_ToF.glb',
 }
+
 
 export function modelUrl(id) {
   const file = MODEL_FILES[id]
 
   if (!file) return null
 
-  const safeFile = encodeURIComponent(file)
-    .replace(/%2B/gi, '+')
-
-  return `/models/${safeFile}`
+  return `/models/${encodeURIComponent(file)}`
 }
+
 
 export const COMPONENTS = [
   {
