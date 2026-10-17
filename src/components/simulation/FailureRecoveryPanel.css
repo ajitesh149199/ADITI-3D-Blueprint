@@ -1,0 +1,334 @@
+
+.aditi-recovery-panel {
+  margin-top: 22px;
+  padding: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-recovery-header {
+  margin-bottom: 20px;
+}
+
+.aditi-recovery-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-recovery-header h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-recovery-header p,
+.aditi-recovery-batch-header p {
+  margin: 0;
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.aditi-recovery-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.aditi-recovery-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-recovery-controls select {
+  width: 100%;
+  padding: 11px;
+  background: #20162f;
+  color: #f5efff;
+  border: 1px solid #49335c;
+  border-radius: 8px;
+}
+
+.aditi-recovery-controls button,
+.aditi-recovery-batch button {
+  padding: 11px 15px;
+  background: #3d183c;
+  color: #ff9ad0;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aditi-recovery-controls button:hover,
+.aditi-recovery-batch button:hover {
+  background: #54204f;
+}
+
+.aditi-recovery-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aditi-recovery-sensor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 13px;
+  margin: 15px 0 20px;
+  background: #1c152c;
+  border: 1px solid #382849;
+  border-radius: 9px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-recovery-sensor-list strong {
+  color: #f5efff;
+}
+
+.aditi-recovery-sensor-list .required {
+  color: #34d399;
+}
+
+.aditi-recovery-sensor-list .optional {
+  color: #fbbf24;
+}
+
+.aditi-recovery-results,
+.aditi-recovery-batch {
+  padding: 16px;
+  margin-top: 18px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 12px;
+}
+
+.aditi-recovery-results h3,
+.aditi-recovery-batch h3 {
+  margin: 0 0 15px;
+  font-size: 15px;
+}
+
+.aditi-recovery-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-recovery-card {
+  padding: 16px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 10px;
+}
+
+.aditi-recovery-card h4 {
+  margin: 0 0 14px;
+  font-size: 13px;
+}
+
+.aditi-recovery-status {
+  display: inline-block;
+  padding: 6px 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aditi-recovery-status.normal {
+  background: #123c32;
+  color: #34d399;
+}
+
+.aditi-recovery-status.degraded {
+  background: #423018;
+  color: #fbbf24;
+}
+
+.aditi-recovery-status.unavailable {
+  background: #441e31;
+  color: #fb7185;
+}
+
+.aditi-recovery-card p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0;
+  color: #ad9cbe;
+  font-size: 12px;
+}
+
+.aditi-recovery-card p strong {
+  color: #f5efff;
+}
+
+.aditi-recovery-fallback {
+  margin-top: 14px;
+  padding: 15px;
+  background: #241a34;
+  border: 1px solid #49335c;
+  border-radius: 9px;
+}
+
+.aditi-recovery-fallback h4 {
+  margin: 0 0 12px;
+  color: #22d3ee;
+  font-size: 13px;
+}
+
+.aditi-recovery-fallback p {
+  margin: 9px 0;
+  color: #c9b9d7;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.aditi-recovery-batch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.aditi-recovery-batch-header h3 {
+  margin-bottom: 6px;
+}
+
+.aditi-recovery-stats,
+.aditi-recovery-state-stats {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.aditi-recovery-stats {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.aditi-recovery-state-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.aditi-recovery-stats > div,
+.aditi-recovery-state-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-recovery-stats span,
+.aditi-recovery-state-stats span {
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-recovery-stats strong,
+.aditi-recovery-state-stats strong {
+  font-size: 20px;
+}
+
+.aditi-recovery-stats .success {
+  color: #34d399;
+}
+
+.aditi-recovery-stats .failure {
+  color: #fb7185;
+}
+
+.aditi-recovery-table-wrapper {
+  max-height: 430px;
+  overflow: auto;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-recovery-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.aditi-recovery-table th,
+.aditi-recovery-table td {
+  padding: 11px;
+  border-bottom: 1px solid #382849;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.aditi-recovery-table th {
+  position: sticky;
+  top: 0;
+  background: #281b39;
+  color: #d8c6e8;
+}
+
+.aditi-recovery-table td {
+  color: #b9abc9;
+}
+
+.aditi-recovery-pass {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.aditi-recovery-fail {
+  color: #fb7185;
+  font-weight: 700;
+}
+
+.aditi-recovery-error {
+  padding: 12px;
+  margin: 12px 0;
+  background: #391d30;
+  color: #fb7185;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.aditi-recovery-note {
+  margin-top: 18px;
+  color: #9686a8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .aditi-recovery-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aditi-recovery-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-recovery-controls,
+  .aditi-recovery-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-recovery-batch-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .aditi-recovery-state-stats {
+    grid-template-columns: 1fr;
+  }
+}

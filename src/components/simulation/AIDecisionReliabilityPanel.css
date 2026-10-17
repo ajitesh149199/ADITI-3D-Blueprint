@@ -1,0 +1,286 @@
+
+.aditi-reliability-panel {
+  margin-top: 22px;
+  padding: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-reliability-header {
+  margin-bottom: 20px;
+}
+
+.aditi-reliability-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-reliability-header h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-reliability-header p,
+.aditi-reliability-heading p {
+  margin: 0;
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.aditi-reliability-controls {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.aditi-reliability-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-reliability-controls select {
+  width: 100%;
+  padding: 11px;
+  background: #20162f;
+  color: #f5efff;
+  border: 1px solid #49335c;
+  border-radius: 8px;
+}
+
+.aditi-reliability-controls button,
+.aditi-reliability-batch button {
+  padding: 11px 15px;
+  background: #3d183c;
+  color: #ff9ad0;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aditi-reliability-controls button:hover,
+.aditi-reliability-batch button:hover {
+  background: #54204f;
+}
+
+.aditi-reliability-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aditi-reliability-single,
+.aditi-reliability-batch {
+  margin-top: 18px;
+  padding: 16px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 12px;
+}
+
+.aditi-reliability-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.aditi-reliability-heading h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.aditi-reliability-pass {
+  color: #34d399;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.aditi-reliability-fail {
+  color: #fb7185;
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.aditi-reliability-observation {
+  padding: 12px;
+  background: #241a34;
+  border-radius: 8px;
+  color: #c9b9d7;
+  font-size: 12px;
+}
+
+.aditi-reliability-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-reliability-comparison > div,
+.aditi-reliability-variation {
+  padding: 15px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-reliability-comparison h4,
+.aditi-reliability-variation h4 {
+  margin: 0 0 14px;
+  color: #22d3ee;
+  font-size: 13px;
+}
+
+.aditi-reliability-comparison p,
+.aditi-reliability-variation p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0;
+  color: #ad9cbe;
+  font-size: 12px;
+}
+
+.aditi-reliability-comparison strong,
+.aditi-reliability-variation strong {
+  color: #f5efff;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.aditi-reliability-variation {
+  margin-top: 12px;
+}
+
+.aditi-reliability-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.aditi-reliability-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-reliability-stats span {
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-reliability-stats strong {
+  font-size: 21px;
+}
+
+.aditi-reliability-stats .success {
+  color: #34d399;
+}
+
+.aditi-reliability-stats .failure {
+  color: #fb7185;
+}
+
+.aditi-reliability-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-reliability-filter label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.aditi-reliability-filter input {
+  accent-color: #f04caa;
+}
+
+.aditi-reliability-table-wrapper {
+  max-height: 430px;
+  overflow: auto;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-reliability-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.aditi-reliability-table th,
+.aditi-reliability-table td {
+  padding: 11px;
+  border-bottom: 1px solid #382849;
+  text-align: left;
+  vertical-align: top;
+}
+
+.aditi-reliability-table th {
+  position: sticky;
+  top: 0;
+  background: #281b39;
+  color: #d8c6e8;
+}
+
+.aditi-reliability-table td {
+  color: #b9abc9;
+}
+
+.aditi-reliability-table td:first-child {
+  min-width: 120px;
+}
+
+.aditi-reliability-error {
+  padding: 12px;
+  margin-top: 12px;
+  background: #391d30;
+  color: #fb7185;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.aditi-reliability-note {
+  margin-top: 18px;
+  color: #9686a8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .aditi-reliability-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-reliability-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aditi-reliability-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-reliability-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

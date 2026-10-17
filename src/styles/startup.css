@@ -1,0 +1,1016 @@
+/* =========================================================
+   ADITI COMPANION
+   STARTUP / BOOT INTERFACE
+========================================================= */
+
+:root {
+    --aditi-black: #020204;
+    --aditi-black-soft: #050509;
+
+    --aditi-magenta: #ff007a;
+    --aditi-magenta-soft: #b9005d;
+
+    --aditi-cyan: #00e7ee;
+    --aditi-cyan-soft: #00a9b4;
+
+    --aditi-white: #f4f7f8;
+    --aditi-muted: #74777f;
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.startup-screen {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    color: var(--aditi-white);
+
+    background:
+        radial-gradient(
+            circle at 50% 44%,
+            rgba(255, 0, 122, 0.045),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 56%,
+            rgba(0, 231, 238, 0.025),
+            transparent 36%
+        ),
+        var(--aditi-black);
+}
+
+
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.startup-grid {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.09;
+
+    background-image:
+        linear-gradient(
+            rgba(0, 231, 238, 0.12) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255, 0, 122, 0.08) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        64px 64px;
+
+    mask-image:
+        radial-gradient(
+            circle at center,
+            black,
+            transparent 82%
+        );
+}
+
+
+.startup-ambient {
+    position: absolute;
+
+    width: 380px;
+    height: 380px;
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    filter: blur(110px);
+
+    opacity: 0.07;
+}
+
+
+.startup-ambient-magenta {
+    top: 12%;
+    left: 14%;
+
+    background:
+        var(--aditi-magenta);
+}
+
+
+.startup-ambient-cyan {
+    right: 10%;
+    bottom: 8%;
+
+    background:
+        var(--aditi-cyan);
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.startup-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(
+        88%,
+        760px
+    );
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   ADITI BRAND
+========================================================= */
+
+.startup-brand {
+    margin-bottom: 38px;
+}
+
+
+.startup-title {
+    margin: 0;
+
+    padding-left: 0.18em;
+
+    font-family:
+        "Courier New",
+        "Lucida Console",
+        monospace;
+
+    font-size:
+        clamp(
+            4.6rem,
+            12vw,
+            8.2rem
+        );
+
+    font-weight: 400;
+
+    line-height: 0.9;
+
+    letter-spacing: 0.18em;
+
+    color:
+        var(--aditi-magenta);
+
+    text-shadow:
+        0 0 8px
+        rgba(255, 0, 122, 0.82),
+        0 0 22px
+        rgba(255, 0, 122, 0.36),
+        0 0 55px
+        rgba(255, 0, 122, 0.14);
+
+    animation:
+        aditiBrandPulse
+        3.4s ease-in-out infinite;
+}
+
+
+.startup-subtitle {
+    margin:
+        22px 0 0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(
+            0.58rem,
+            1.6vw,
+            0.78rem
+        );
+
+    font-weight: 400;
+
+    letter-spacing: 0.22em;
+
+    text-transform: uppercase;
+
+    color:
+        rgba(
+            236,
+            236,
+            240,
+            0.62
+        );
+}
+
+
+/* =========================================================
+   ADITI REFERENCE EYE
+========================================================= */
+
+.aditi-reference-eye {
+    position: relative;
+
+    width: 310px;
+    height: 145px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin:
+        4px 0 46px;
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(255, 0, 122, 0.2)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   OUTER EYE
+--------------------------------------------------------- */
+
+.eye-outline {
+    position: relative;
+
+    width: 275px;
+    height: 108px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-top:
+        2px solid
+        var(--aditi-magenta);
+
+    border-bottom:
+        2px solid
+        rgba(255, 0, 122, 0.78);
+
+    /*
+       Symmetrical eye geometry.
+       No skew is used here because skewing
+       was making the eye appear tilted.
+    */
+    border-radius:
+        50% 50% 50% 50%
+        /
+        70% 70% 70% 70%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(0, 231, 238, 0.055),
+            rgba(255, 0, 122, 0.018) 48%,
+            transparent 73%
+        );
+
+    box-shadow:
+        0 -5px 18px
+        rgba(255, 0, 122, 0.08),
+        0 5px 18px
+        rgba(255, 0, 122, 0.05);
+
+    transform:
+        rotate(0deg);
+
+    animation:
+        aditiReferenceBlink
+        5.4s infinite;
+}
+
+
+.eye-outline::before {
+    content: "";
+
+    position: absolute;
+
+    left: 4px;
+    right: 4px;
+    top: -1px;
+
+    height: 52%;
+
+    border-top:
+        1px solid
+        rgba(255, 0, 122, 0.95);
+
+    border-radius:
+        50% 50% 0 0;
+}
+
+
+.eye-outline::after {
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+    bottom: -1px;
+
+    height: 48%;
+
+    border-bottom:
+        1px solid
+        rgba(255, 0, 122, 0.72);
+
+    border-radius:
+        0 0 50% 50%;
+}
+
+
+/* ---------------------------------------------------------
+   CYAN IRIS RINGS
+--------------------------------------------------------- */
+
+.eye-ring {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+}
+
+
+.eye-ring-outer {
+    width: 88px;
+    height: 88px;
+
+    border:
+        2px solid
+        rgba(0, 231, 238, 0.78);
+
+    transform:
+        none;
+
+    box-shadow:
+        0 0 11px
+        rgba(0, 231, 238, 0.38),
+        inset 0 0 13px
+        rgba(0, 231, 238, 0.12);
+}
+
+
+.eye-ring-middle {
+    width: 68px;
+    height: 68px;
+
+    border:
+        2px solid
+        rgba(0, 231, 238, 0.55);
+
+    box-shadow:
+        0 0 12px
+        rgba(0, 231, 238, 0.18);
+}
+
+
+.eye-ring-inner {
+    width: 49px;
+    height: 49px;
+
+    border:
+        1px solid
+        rgba(0, 231, 238, 0.7);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 0, 122, 0.09),
+            rgba(0, 231, 238, 0.035)
+        );
+}
+
+
+/* ---------------------------------------------------------
+   MAGENTA PUPIL
+--------------------------------------------------------- */
+
+.eye-pupil {
+    position: relative;
+
+    width: 28px;
+    height: 37px;
+
+    border-radius:
+        48% 48% 52% 52%;
+
+    background:
+        var(--aditi-magenta);
+
+    box-shadow:
+        0 0 8px
+        rgba(255, 0, 122, 0.95),
+        0 0 20px
+        rgba(255, 0, 122, 0.58),
+        0 0 34px
+        rgba(255, 0, 122, 0.25);
+
+    animation:
+        aditiPupilPulse
+        2.2s ease-in-out infinite;
+}
+
+
+.eye-highlight {
+    position: absolute;
+
+    width: 8px;
+    height: 8px;
+
+    top: 6px;
+    left: 5px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(245, 255, 255, 0.92);
+
+    box-shadow:
+        0 0 7px
+        rgba(0, 231, 238, 0.9);
+}
+
+
+/* ---------------------------------------------------------
+   EYELASH / SENSOR LINES
+--------------------------------------------------------- */
+
+.eye-lash {
+    position: absolute;
+
+    z-index: 4;
+
+    width: 1px;
+    height: 30px;
+
+    top: 1px;
+
+    background:
+        linear-gradient(
+            to top,
+            var(--aditi-magenta),
+            rgba(255, 0, 122, 0.15)
+        );
+
+    transform-origin:
+        bottom center;
+
+    box-shadow:
+        0 0 5px
+        rgba(255, 0, 122, 0.35);
+}
+
+
+.eye-lash-1 {
+    left: 74px;
+    transform: rotate(-31deg);
+}
+
+
+.eye-lash-2 {
+    left: 105px;
+    transform: rotate(-18deg);
+}
+
+
+.eye-lash-3 {
+    left: 138px;
+    transform: rotate(-7deg);
+}
+
+
+.eye-lash-4 {
+    left: 170px;
+    transform: rotate(5deg);
+}
+
+
+.eye-lash-5 {
+    left: 201px;
+    transform: rotate(17deg);
+}
+
+
+/* =========================================================
+   INITIALIZATION
+========================================================= */
+
+.startup-system {
+    width: min(
+        100%,
+        620px
+    );
+}
+
+
+.startup-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 14px;
+
+    margin-bottom: 19px;
+}
+
+
+.startup-status {
+    margin: 0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(
+            0.68rem,
+            1.8vw,
+            0.84rem
+        );
+
+    font-weight: 400;
+
+    letter-spacing: 0.28em;
+
+    color:
+        rgba(245, 248, 249, 0.84);
+
+    text-shadow:
+        0 0 8px
+        rgba(255, 0, 122, 0.18);
+}
+
+
+.startup-status-marker {
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.08em;
+
+    color:
+        var(--aditi-cyan);
+
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.startup-progress-track {
+    position: relative;
+
+    width: 100%;
+    height: 4px;
+
+    overflow: visible;
+
+    border-radius: 100px;
+
+    background:
+        rgba(255, 255, 255, 0.075);
+
+    box-shadow:
+        inset 0 0 6px
+        rgba(0, 0, 0, 0.8);
+}
+
+
+.startup-progress-fill {
+    position: relative;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--aditi-magenta-soft),
+            var(--aditi-magenta) 62%,
+            var(--aditi-cyan)
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(255, 0, 122, 0.75),
+        0 0 18px
+        rgba(255, 0, 122, 0.22);
+
+    transition:
+        width 0.1s linear;
+}
+
+
+.progress-head {
+    position: absolute;
+
+    right: -3px;
+    top: 50%;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        #f4ffff;
+
+    box-shadow:
+        0 0 7px
+        var(--aditi-cyan),
+        0 0 14px
+        var(--aditi-magenta);
+}
+
+
+.startup-progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 13px;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.15em;
+
+    color:
+        rgba(221, 223, 228, 0.4);
+}
+
+
+.startup-percentage {
+    color:
+        rgba(0, 231, 238, 0.72);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.startup-footer {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin:
+        70px 0 0;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size: 0.53rem;
+
+    letter-spacing: 0.26em;
+
+    color:
+        rgba(230, 230, 235, 0.24);
+}
+
+
+.footer-divider {
+    color:
+        rgba(255, 0, 122, 0.65);
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes aditiBrandPulse {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 7px
+            rgba(255, 0, 122, 0.7),
+            0 0 20px
+            rgba(255, 0, 122, 0.3);
+    }
+
+    50% {
+        text-shadow:
+            0 0 10px
+            rgba(255, 0, 122, 0.95),
+            0 0 28px
+            rgba(255, 0, 122, 0.48),
+            0 0 58px
+            rgba(255, 0, 122, 0.18);
+    }
+}
+
+
+@keyframes aditiPupilPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(0.92);
+    }
+
+    50% {
+        transform:
+            scale(1.07);
+    }
+}
+
+
+@keyframes aditiReferenceBlink {
+
+    0%,
+    42%,
+    46%,
+    74%,
+    78%,
+    100% {
+        transform:
+            scaleY(1);
+    }
+
+    44%,
+    76% {
+        transform:
+            scaleY(0.06);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (
+    max-width: 768px
+) {
+
+    .startup-content {
+        width: 88%;
+    }
+
+
+    .startup-brand {
+        margin-bottom: 32px;
+    }
+
+
+    .aditi-reference-eye {
+        transform:
+            scale(0.9);
+
+        margin:
+            -2px 0 38px;
+    }
+
+
+    .startup-footer {
+        margin-top: 58px;
+    }
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (
+    max-width: 480px
+) {
+
+    .startup-content {
+        width:
+            calc(
+                100% - 36px
+            );
+    }
+
+
+    .startup-title {
+        font-size:
+            clamp(
+                3.7rem,
+                19vw,
+                5.2rem
+            );
+
+        letter-spacing: 0.14em;
+
+        padding-left: 0.14em;
+    }
+
+
+    .startup-subtitle {
+        margin-top: 17px;
+
+        font-size: 0.54rem;
+
+        letter-spacing: 0.16em;
+    }
+
+
+    .aditi-reference-eye {
+        width: 290px;
+
+        transform:
+            scale(0.82);
+
+        margin:
+            -8px 0 30px;
+    }
+
+
+    .startup-status-row {
+        gap: 8px;
+    }
+
+
+    .startup-status {
+        font-size: 0.62rem;
+
+        letter-spacing: 0.19em;
+    }
+
+
+    .startup-status-marker {
+        font-size: 0.55rem;
+    }
+
+
+    .startup-progress-info {
+        font-size: 0.5rem;
+
+        letter-spacing: 0.1em;
+    }
+
+
+    .startup-footer {
+        margin-top: 50px;
+
+        font-size: 0.47rem;
+
+        letter-spacing: 0.18em;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (
+    max-width: 360px
+) {
+
+    .aditi-reference-eye {
+        transform:
+            scale(0.72);
+
+        margin:
+            -15px 0 20px;
+    }
+
+
+    .startup-title {
+        font-size: 3.35rem;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .startup-title,
+    .eye-outline,
+    .eye-pupil {
+        animation: none;
+    }
+
+
+    .startup-progress-fill {
+        transition: none;
+    }
+}
+/* =========================================================
+   ADITI EYE — PRECISE ALMOND GEOMETRY + NATURAL BLINK
+   Final override for the Companion startup screen.
+========================================================= */
+.aditi-reference-eye {
+    width: 330px;
+    height: 150px;
+}
+
+.eye-outline {
+    width: 292px;
+    height: 112px;
+    overflow: hidden;
+    border: 0;
+    border-radius: 0;
+    background: radial-gradient(ellipse at center, rgba(0,231,238,.055), rgba(255,0,122,.018) 48%, transparent 72%);
+    box-shadow: none;
+    transform-origin: center center;
+    animation: aditiPreciseBlink 5.2s ease-in-out infinite;
+}
+
+.eye-outline::before,
+.eye-outline::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    width: 274px;
+    height: 92px;
+    pointer-events: none;
+}
+
+.eye-outline::before {
+    top: 23px;
+    border-top: 2px solid var(--aditi-magenta);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: rotate(-2deg);
+    filter: drop-shadow(0 0 5px rgba(255,0,122,.42));
+}
+
+.eye-outline::after {
+    bottom: 22px;
+    border-bottom: 2px solid rgba(255,0,122,.82);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    transform: rotate(2deg);
+    filter: drop-shadow(0 0 4px rgba(255,0,122,.28));
+}
+
+.eye-lash {
+    top: 9px;
+    height: 25px;
+    transform-origin: bottom center;
+}
+.eye-lash-1 { left: 82px; transform: rotate(-37deg); }
+.eye-lash-2 { left: 111px; transform: rotate(-25deg); }
+.eye-lash-3 { left: 141px; transform: rotate(-13deg); }
+.eye-lash-4 { left: 172px; transform: rotate(1deg); }
+.eye-lash-5 { left: 202px; transform: rotate(15deg); }
+
+@keyframes aditiPreciseBlink {
+    0%, 38%, 42%, 70%, 74%, 100% { transform: scaleY(1); }
+    40%, 72% { transform: scaleY(.045); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .eye-outline { animation: none; }
+}
+
+
+/* =========================================================
+   SHARED ADITI EYE — STARTUP PLACEMENT
+========================================================= */
+.startup-eye-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 42px;
+}

@@ -1,0 +1,183 @@
+
+.aditi-ai-panel {
+  margin-bottom: 18px;
+  padding: 22px;
+  border: 1px solid rgba(153, 88, 187, 0.26);
+  border-radius: 14px;
+  background: #130b22;
+  color: #f5efff;
+  font-family: 'Space Mono', monospace;
+}
+
+.aditi-ai-panel * {
+  box-sizing: border-box;
+}
+
+.aditi-ai-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.aditi-ai-heading > div > span {
+  color: #ff007a;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-ai-heading h2 {
+  margin: 7px 0 0;
+  font-size: 16px;
+}
+
+.aditi-ai-status {
+  color: #22d3ee;
+  font-size: 10px;
+}
+
+.aditi-ai-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-ai-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid rgba(153, 88, 187, 0.26);
+  border-radius: 10px;
+  background: #1a102c;
+}
+
+.aditi-ai-label {
+  color: #a99ab8;
+  font-size: 9px;
+  letter-spacing: 0.6px;
+}
+
+.aditi-ai-card strong {
+  font-size: clamp(14px, 1.6vw, 21px);
+  overflow-wrap: anywhere;
+}
+
+.aditi-ai-card small {
+  color: #a99ab8;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.aditi-ai-cyan {
+  color: #22d3ee;
+}
+
+.aditi-ai-warning {
+  color: #fbbf24;
+}
+
+.aditi-ai-success {
+  color: #34d399;
+}
+
+.aditi-ai-magenta {
+  color: #ff007a;
+}
+
+.aditi-ai-fusion {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  border-radius: 10px;
+  background: rgba(34, 211, 238, 0.03);
+}
+
+.aditi-ai-fusion-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.aditi-ai-fusion-head h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.aditi-ai-fusion-head span {
+  color: #22d3ee;
+  font-size: 10px;
+}
+
+.aditi-ai-fusion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-ai-fusion-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.aditi-ai-fusion-grid span {
+  color: #a99ab8;
+  font-size: 9px;
+}
+
+.aditi-ai-fusion-grid strong {
+  color: #22d3ee;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.aditi-ai-note {
+  margin: 16px 0 0;
+  color: #a99ab8;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.aditi-ai-empty {
+  padding: 30px 18px;
+  border: 1px dashed rgba(153, 88, 187, 0.4);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.aditi-ai-empty strong {
+  color: #22d3ee;
+  font-size: 12px;
+}
+
+.aditi-ai-empty p {
+  color: #a99ab8;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+@media (max-width: 1050px) {
+  .aditi-ai-grid,
+  .aditi-ai-fusion-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 650px) {
+  .aditi-ai-panel {
+    padding: 16px;
+  }
+
+  .aditi-ai-grid,
+  .aditi-ai-fusion-grid {
+    grid-template-columns: 1fr;
+  }
+}

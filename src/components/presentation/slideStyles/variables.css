@@ -1,0 +1,44 @@
+:root {
+  /* Color Palette - Dark Navy/Black base with Cyan, Magenta, Violet accents */
+  --bg-dark-base: #030611;
+  --bg-dark-surface: #070d22;
+  --bg-dark-card: rgba(10, 16, 38, 0.78);
+  --bg-dark-card-hover: rgba(18, 28, 64, 0.88);
+  --bg-glass-overlay: rgba(5, 9, 24, 0.65);
+
+  --accent-cyan: #00f0ff;
+  --accent-cyan-rgb: 0, 240, 255;
+  --accent-magenta: #ff007f;
+  --accent-magenta-rgb: 255, 0, 127;
+  --accent-violet: #8b5cf6;
+  --accent-violet-rgb: 139, 92, 246;
+  --accent-amber: #f59e0b;
+  --accent-emerald: #10b981;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-dim: #475569;
+
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-cyan: rgba(0, 240, 255, 0.35);
+  --border-magenta: rgba(255, 0, 127, 0.35);
+  --border-violet: rgba(139, 92, 246, 0.35);
+
+  --font-heading: 'Orbitron', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+
+  --shadow-neon-cyan: 0 0 20px rgba(0, 240, 255, 0.3);
+  --shadow-neon-magenta: 0 0 20px rgba(255, 0, 127, 0.3);
+  --shadow-neon-violet: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

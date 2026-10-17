@@ -1,0 +1,2608 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+
+:root {
+  --bg-0: #04060c;
+  --bg-1: #070b14;
+  --bg-2: #0c1424;
+  --navy: #0a1628;
+  --line: rgba(56, 189, 248, 0.18);
+  --cyan: #67e8f9;
+  --cyan-2: #22d3ee;
+  --blue: #3b82f6;
+  --text: #e8f4ff;
+  --muted: #8aa0b8;
+  --glass: rgba(10, 20, 40, 0.55);
+  --glass-border: rgba(103, 232, 249, 0.22);
+  --danger: #fb7185;
+  --ok: #34d399;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  --radius: 16px;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg-0);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  background: var(--bg-0);
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 268px 1fr;
+  grid-template-rows: 64px 1fr;
+  height: 100%;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(34, 211, 238, 0.08), transparent 50%),
+    radial-gradient(900px 500px at -10% 110%, rgba(59, 130, 246, 0.1), transparent 45%),
+    linear-gradient(180deg, #05070d 0%, #070d18 100%);
+}
+
+.topbar {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(8, 14, 26, 0.92), rgba(8, 14, 26, 0.7));
+  backdrop-filter: blur(16px);
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, rgba(34, 211, 238, 0.25), rgba(59, 130, 246, 0.12));
+  border: 1px solid var(--glass-border);
+  color: var(--cyan);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 15px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+}
+
+.brand p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.top-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pill {
+  border: 1px solid var(--glass-border);
+  background: var(--glass);
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+.sidebar {
+  border-right: 1px solid var(--line);
+  padding: 18px 14px;
+  background: rgba(6, 10, 18, 0.55);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 6px 10px 10px;
+}
+
+.nav-btn {
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text);
+  border-radius: 12px;
+  padding: 11px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  transition: 180ms ease;
+}
+
+.nav-btn span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-btn small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: rgba(34, 211, 238, 0.08);
+  border-color: var(--glass-border);
+}
+
+.nav-btn.active span {
+  color: var(--cyan);
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  padding: 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  background: var(--glass);
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.workspace {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.section {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px 20px 10px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+}
+
+.section-head p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 720px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--glass-border);
+  background: rgba(12, 22, 40, 0.7);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.btn:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.18), rgba(59, 130, 246, 0.12));
+}
+
+.stage {
+  position: relative;
+  margin: 0 16px 16px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(180deg, rgba(8, 16, 32, 0.4), rgba(4, 8, 16, 0.7)),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 31px,
+      rgba(56, 189, 248, 0.05) 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 31px,
+      rgba(56, 189, 248, 0.05) 32px
+    );
+  box-shadow: var(--shadow);
+  min-height: 0;
+}
+
+.stage.canvas-fill,
+.canvas-fill {
+  height: 100%;
+}
+
+.hud {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.hud > * {
+  pointer-events: auto;
+}
+
+.hud-tl {
+  top: 16px;
+  left: 16px;
+}
+
+.hud-tr {
+  top: 16px;
+  right: 16px;
+}
+
+.hud-bl {
+  bottom: 16px;
+  left: 16px;
+}
+
+.hud-br {
+  bottom: 16px;
+  right: 16px;
+}
+
+.glass-panel {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  backdrop-filter: blur(18px);
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+}
+
+.kicker {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan-2);
+  margin-bottom: 6px;
+}
+
+.stat-row {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.stat-row b {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.loader {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(4, 6, 12, 0.55);
+  z-index: 8;
+}
+
+.loader-card {
+  width: min(420px, 86vw);
+  text-align: center;
+}
+
+.progress {
+  height: 4px;
+  border-radius: 99px;
+  background: rgba(103, 232, 249, 0.12);
+  overflow: hidden;
+  margin-top: 14px;
+}
+
+.progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--cyan-2), var(--blue));
+}
+
+.err {
+  color: var(--danger);
+  font-size: 13px;
+}
+
+.exploded-page {
+  height: 100%;
+  overflow: auto;
+  container-type: size;
+}
+
+.exploded-track {
+  height: 280%;
+  position: relative;
+}
+
+.exploded-sticky {
+  position: sticky;
+  top: 0;
+  height: 100cqh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 0;
+}
+
+.scroll-hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  height: 100%;
+  min-height: 0;
+}
+
+.list {
+  overflow: auto;
+  padding: 8px 12px 16px;
+  border-right: 1px solid var(--line);
+}
+
+.item {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  border-radius: 12px;
+  padding: 10px 10px;
+  margin-bottom: 6px;
+}
+
+.item.active,
+.item:hover {
+  border-color: var(--glass-border);
+  background: rgba(34, 211, 238, 0.07);
+}
+
+.item h3 {
+  margin: 0;
+  font-size: 13px;
+}
+
+.item p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.node-list {
+  max-height: 180px;
+  overflow: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.arch-grid,
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  padding: 0 18px 18px;
+  overflow: auto;
+}
+
+.card {
+  grid-column: span 4;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.card.wide {
+  grid-column: span 8;
+}
+
+.card.full {
+  grid-column: span 12;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.card p,
+.card li {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.flow-step {
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(8, 16, 30, 0.45);
+}
+
+.flow-step b {
+  display: block;
+  color: var(--cyan);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.table th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.label-chip {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--glass-border);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.html-label {
+  pointer-events: none;
+  transform: translate(-50%, -120%);
+}
+
+.html-label .tag {
+  background: rgba(6, 12, 22, 0.82);
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  color: #e8f4ff;
+  padding: 6px 9px;
+  border-radius: 8px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+.html-label .tag small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+@media (max-width: 980px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 64px auto 1fr;
+  }
+  .sidebar {
+    flex-direction: row;
+    overflow: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    padding: 8px;
+  }
+  .sidebar-foot,
+  .nav-label {
+    display: none;
+  }
+  .nav-btn {
+    min-width: 150px;
+  }
+  .split {
+    grid-template-columns: 1fr;
+    grid-template-rows: 180px 1fr;
+  }
+  .list {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .card,
+  .card.wide,
+  .card.full {
+    grid-column: span 12;
+  }
+  .flow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 6 — SYSTEM ARCHITECTURE SCROLL
+   ============================================ */
+
+/* Allow the architecture section to scroll
+   without changing the 3D viewer layouts. */
+
+.workspace > .section:has(.aditi-architecture-scroll) {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-content: start;
+  grid-template-rows: auto auto;
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee #070b14;
+}
+
+/* ============================================
+   ADITI PHASE 8.4 — COMPANION THEME
+   Visual overrides only
+   ============================================ */
+
+:root {
+  --bg-0: #080610;
+  --bg-1: #0c0916;
+  --bg-2: #141022;
+  --navy: #100c1d;
+
+  --line: rgba(255, 0, 122, 0.17);
+
+  --magenta: #ff007a;
+  --cyan: #00e7ee;
+  --cyan-2: #00e7ee;
+  --blue: #ff007a;
+
+  --text: #f5f0fa;
+  --muted: #a99db8;
+
+  --glass: rgba(19, 12, 32, 0.78);
+  --glass-border: rgba(255, 0, 122, 0.22);
+
+  --danger: #ff658f;
+  --ok: #38d9a9;
+
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.48);
+}
+
+/* Main application */
+
+.app {
+  background:
+    radial-gradient(
+      900px 550px at 85% -10%,
+      rgba(255, 0, 122, 0.10),
+      transparent 60%
+    ),
+    radial-gradient(
+      800px 550px at -10% 110%,
+      rgba(0, 231, 238, 0.06),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #080610, #0c0916);
+}
+
+/* Header */
+
+.topbar {
+  background: linear-gradient(
+    180deg,
+    rgba(16, 10, 27, 0.97),
+    rgba(12, 8, 23, 0.90)
+  );
+  border-bottom-color: rgba(255, 0, 122, 0.20);
+}
+
+.brand h1 {
+  color: #f9f2ff;
+}
+
+.pill {
+  border-color: rgba(255, 0, 122, 0.22);
+  background: rgba(255, 0, 122, 0.055);
+}
+
+/* Sidebar */
+
+.sidebar {
+  background: rgba(11, 7, 20, 0.82);
+  border-right-color: rgba(255, 0, 122, 0.16);
+}
+
+.nav-btn:hover {
+  background: rgba(255, 0, 122, 0.07);
+  border-color: rgba(255, 0, 122, 0.24);
+}
+
+.nav-btn.active {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 122, 0.16),
+    rgba(255, 0, 122, 0.035)
+  );
+  border-color: rgba(255, 0, 122, 0.40);
+  box-shadow: inset 3px 0 0 #ff007a;
+}
+
+.nav-btn.active span {
+  color: #ff4da0;
+}
+
+.sidebar-foot {
+  background: rgba(255, 0, 122, 0.035);
+}
+
+/* Section headings */
+
+.section-head h2 {
+  color: #f8f0ff;
+}
+
+/* Buttons */
+
+.btn {
+  background: rgba(24, 14, 36, 0.86);
+  border-color: rgba(255, 0, 122, 0.25);
+}
+
+.btn:hover {
+  border-color: #ff007a;
+  color: #ff68b0;
+}
+
+.btn.primary {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 122, 0.24),
+    rgba(255, 0, 122, 0.08)
+  );
+  border-color: rgba(255, 0, 122, 0.46);
+  color: #ffd6e9;
+}
+
+/* 3D viewer frame — canvas behavior unchanged */
+
+.stage {
+  border-color: rgba(255, 0, 122, 0.23);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(14, 8, 26, 0.45),
+      rgba(7, 5, 16, 0.78)
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 31px,
+      rgba(255, 0, 122, 0.035) 32px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0,
+      transparent 31px,
+      rgba(255, 0, 122, 0.035) 32px
+    );
+}
+
+/* HUD and information panels */
+
+.glass-panel,
+.card {
+  background: rgba(18, 11, 31, 0.80);
+  border-color: rgba(255, 0, 122, 0.22);
+}
+
+.kicker {
+  color: #00e7ee;
+}
+
+/* Component explorer */
+
+.item:hover {
+  background: rgba(255, 0, 122, 0.055);
+  border-color: rgba(255, 0, 122, 0.25);
+}
+
+.item.active {
+  background: rgba(255, 0, 122, 0.11);
+  border-color: rgba(255, 0, 122, 0.42);
+}
+
+/* Architecture flow */
+
+.flow-step {
+  background: rgba(19, 12, 32, 0.70);
+  border-color: rgba(255, 0, 122, 0.23);
+}
+
+.flow-step b {
+  color: #00e7ee;
+}
+
+/* Labels and chips */
+
+.label-chip {
+  color: #ff78b9;
+  border-color: rgba(255, 0, 122, 0.30);
+}
+
+.html-label .tag {
+  background: rgba(14, 8, 25, 0.90);
+  border-color: rgba(255, 0, 122, 0.38);
+  color: #f5f0fa;
+}
+
+/* Loading indicators inside viewers */
+
+.progress {
+  background: rgba(255, 0, 122, 0.12);
+}
+
+.progress > span {
+  background: linear-gradient(
+    90deg,
+    #ff007a,
+    #00e7ee
+  );
+}
+
+/* Scrollbars */
+
+.sidebar,
+.list,
+.exploded-page,
+.arch-grid,
+.specs-grid,
+.aditi-architecture-page {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 0, 122, 0.48) #0c0916;
+}
+
+
+/* ============================================
+   ADITI PHASE 8.4.3
+   RESPONSIVE HEADER REFINEMENT
+   ============================================ */
+
+/* Desktop header */
+
+.app {
+  grid-template-rows: 76px minmax(0, 1fr);
+}
+
+.topbar {
+  min-width: 0;
+  gap: 20px;
+  padding: 10px 22px;
+}
+
+.brand {
+  min-width: 0;
+  flex: 1;
+}
+
+.brand > div:last-child {
+  min-width: 0;
+}
+
+.brand h1 {
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+}
+
+.brand p {
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.top-meta {
+  flex-shrink: 0;
+}
+
+.pill {
+  white-space: nowrap;
+}
+
+/* Tablet and narrow desktop */
+
+@media (max-width: 1100px) {
+  .topbar {
+    gap: 12px;
+    padding: 10px 14px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand h1 {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+  }
+
+  .brand p {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .top-meta {
+    gap: 6px;
+  }
+
+  .top-meta .pill {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    padding: 6px 8px;
+  }
+}
+
+/* Mobile and small browser windows */
+
+@media (max-width: 700px) {
+  .app {
+    grid-template-rows: auto auto minmax(0, 1fr);
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .brand {
+    flex: 1 1 100%;
+  }
+
+  .brand h1 {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+  }
+
+  .brand p {
+    font-size: 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .top-meta {
+    width: 100%;
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  .top-meta .pill {
+    font-size: 9px;
+  }
+
+  .sidebar {
+    min-width: 0;
+  }
+
+  .workspace {
+    min-height: 0;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.4.4
+   UNIFIED PANELS AND TYPOGRAPHY
+   ============================================ */
+
+/* Global typography */
+
+:root {
+  font-family: 'Space Mono', monospace;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Space Mono', monospace;
+}
+
+.app,
+.app * {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Balanced letter spacing */
+
+.brand h1,
+.section-head h2,
+.card h3 {
+  letter-spacing: 0.08em;
+}
+
+.nav-btn span,
+.btn,
+.pill,
+.kicker,
+.nav-label {
+  letter-spacing: 0.06em;
+}
+
+.section-head p,
+.card p,
+.card li,
+.item p,
+.stat-row,
+.brand p {
+  letter-spacing: 0.01em;
+}
+
+/* Darken remaining blue-tinted panels */
+
+.app .glass-panel,
+.app .card,
+.app .flow-step,
+.app .sidebar-foot {
+  background: rgba(14, 8, 24, 0.94);
+  border-color: rgba(255, 0, 122, 0.25);
+}
+
+.app .stage {
+  border-color: rgba(255, 0, 122, 0.28);
+}
+
+.app .list {
+  background: #0b0714;
+  border-color: rgba(255, 0, 122, 0.20);
+}
+
+/* Explorer component cards */
+
+.app .item {
+  background: rgba(18, 11, 30, 0.94);
+  border: 1px solid rgba(255, 0, 122, 0.18);
+}
+
+.app .item:hover {
+  background: rgba(255, 0, 122, 0.07);
+  border-color: rgba(255, 0, 122, 0.38);
+}
+
+.app .item.active {
+  background: rgba(255, 0, 122, 0.13);
+  border-color: #ff007a;
+}
+
+/* Buttons and filters */
+
+.app .btn,
+.app .pill,
+.app .label-chip {
+  background-color: rgba(20, 11, 32, 0.92);
+  border-color: rgba(255, 0, 122, 0.28);
+}
+
+/* Inputs */
+
+.app input,
+.app select,
+.app textarea {
+  background-color: #0b0714;
+  color: #f5f0fa;
+  border-color: rgba(255, 0, 122, 0.30);
+}
+
+.app input:focus,
+.app select:focus,
+.app textarea:focus {
+  outline-color: #ff007a;
+}
+
+/* Architecture and technical panels */
+
+.app .arch-grid,
+.app .specs-grid {
+  background: transparent;
+}
+
+.app .flow-step,
+.app .html-label .tag {
+  background: rgba(15, 8, 25, 0.96);
+}
+
+/* General dashboard text */
+
+.app h1,
+.app h2,
+.app h3,
+.app h4 {
+  color: #f8efff;
+}
+
+.app p,
+.app li,
+.app td {
+  line-height: 1.65;
+}
+
+/* Scrollbar styling */
+
+.app * {
+  scrollbar-color: rgba(255, 0, 122, 0.50) #0b0714;
+}
+
+/* ============================================
+   ADITI PHASE 8.4.8
+   FINAL TYPOGRAPHY REFINEMENT
+   ============================================ */
+
+/* Consistent interface typography */
+
+:root {
+  --aditi-font: 'Space Mono', monospace;
+}
+
+body,
+.app,
+.app button,
+.app input,
+.app select,
+.app textarea {
+  font-family: var(--aditi-font);
+}
+
+/* Main dashboard title */
+
+.brand h1 {
+  font-family: var(--aditi-font);
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #f8efff;
+}
+
+/* Main page headings */
+
+.app .section-head h2,
+.app h2 {
+  font-family: var(--aditi-font);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  line-height: 1.45;
+  color: #f8efff;
+}
+
+/* Subsection headings */
+
+.app h3,
+.app h4 {
+  font-family: var(--aditi-font);
+  font-weight: 400;
+  letter-spacing: 0.09em;
+}
+
+/* Navigation */
+
+.app .nav-btn {
+  font-family: var(--aditi-font);
+  letter-spacing: 0.08em;
+}
+
+.app .nav-btn span {
+  font-weight: 400;
+}
+
+/* Buttons */
+
+.app button,
+.app .btn {
+  font-family: var(--aditi-font);
+  letter-spacing: 0.045em;
+}
+
+/* Technical labels */
+
+.app .kicker,
+.app .pill,
+.app .nav-label {
+  font-family: var(--aditi-font);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Paragraphs and descriptions */
+
+.app p,
+.app li,
+.app td,
+.app input,
+.app textarea {
+  font-family: var(--aditi-font);
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.7;
+}
+
+/* Prevent excessive spacing in small UI controls */
+
+.app button,
+.app input,
+.app select {
+  font-size: inherit;
+}
+
+/* Mobile readability */
+
+@media (max-width: 700px) {
+  .brand h1 {
+    letter-spacing: 0.1em;
+  }
+
+  .app .section-head h2,
+  .app h2 {
+    letter-spacing: 0.07em;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.1
+   MOBILE DASHBOARD FOUNDATION
+   ============================================ */
+
+@media (max-width: 700px) {
+
+  /* Main dashboard layout */
+  .app:not(.aditi-presentation-mode) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 64px minmax(0, 1fr);
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Compact mobile header */
+  .app:not(.aditi-presentation-mode) .topbar {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    height: 64px;
+    padding: 8px 12px;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .app:not(.aditi-presentation-mode) .brand {
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .app:not(.aditi-presentation-mode) .brand-mark {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 40px !important;
+    flex-shrink: 0;
+  }
+
+  .app:not(.aditi-presentation-mode) .brand h1 {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+  }
+
+  .app:not(.aditi-presentation-mode) .brand p {
+    display: none;
+  }
+
+  .app:not(.aditi-presentation-mode) .top-meta {
+    display: none;
+  }
+
+  /* Workspace fills remaining screen */
+  .app:not(.aditi-presentation-mode) .workspace {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Sidebar becomes an overlay drawer.
+     The opening behavior comes in Step 2. */
+  .app:not(.aditi-presentation-mode) .sidebar {
+    position: fixed;
+    top: 64px;
+    bottom: 0;
+    left: 0;
+    width: min(290px, 85vw);
+    height: calc(100dvh - 64px);
+    z-index: 80;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 12px;
+
+    background: rgba(12, 7, 22, 0.98);
+    border-right: 1px solid rgba(255, 0, 122, 0.3);
+    border-bottom: none;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    transform: translateX(-105%);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+      transform 240ms ease,
+      visibility 240ms ease;
+  }
+
+  /* Activated by the mobile menu */
+  .app.mobile-menu-open .sidebar {
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .app .sidebar .nav-label {
+    display: block;
+  }
+
+  .app .sidebar .nav-btn {
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .app .sidebar .sidebar-foot {
+    display: block;
+  }
+
+  /* Presentation button must fit mobile */
+  .app:not(.aditi-presentation-mode)
+  > button[aria-label="Enter fullscreen presentation mode"] {
+    left: auto !important;
+    right: 12px;
+    bottom: 12px !important;
+    padding: 9px 11px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* ADITI Mobile Eye Navigation — Final Fix */
+
+@media (max-width: 700px) {
+
+  /* Remove separate hamburger button */
+  .app .mobile-menu-toggle {
+    display: none !important;
+  }
+
+  /* Hide original desktop eye */
+  .app .aditi-desktop-eye {
+    display: none !important;
+  }
+
+  /* Eye becomes the mobile navigation control */
+  .app .aditi-eye-menu {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 54px;
+    height: 48px;
+    min-width: 54px;
+
+    padding: 0;
+    overflow: hidden;
+
+    background: #100b18;
+    border: 1px solid rgba(255, 0, 122, 0.4);
+    border-radius: 12px;
+    cursor: pointer;
+  }
+
+  /* Glow when drawer is open */
+  .app.mobile-menu-open .aditi-eye-menu {
+    border-color: #ff007a;
+    background: rgba(255, 0, 122, 0.12);
+    box-shadow: 0 0 18px rgba(255, 0, 122, 0.3);
+  }
+}
+
+
+/* ============================================
+   ADITI — SINGLE EYE NAVIGATION
+   ============================================ */
+
+.app .aditi-eye-nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 64px;
+  height: 48px;
+  padding: 0;
+  overflow: hidden;
+
+  background: #100b18;
+  border: 1px solid rgba(255, 0, 122, 0.3);
+  border-radius: 12px;
+
+  box-shadow: 0 0 16px rgba(255, 0, 122, 0.1);
+
+  cursor: default;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .app .aditi-eye-nav-button {
+    width: 48px;
+    height: 44px;
+
+    cursor: pointer;
+    pointer-events: auto;
+
+    touch-action: manipulation;
+    position: relative;
+    z-index: 25;
+  }
+
+  .app.mobile-menu-open .aditi-eye-nav-button {
+    background: rgba(255, 0, 122, 0.12);
+    border-color: #ff007a;
+    box-shadow: 0 0 18px rgba(255, 0, 122, 0.3);
+  }
+
+  .app .aditi-eye-nav-button:focus-visible {
+    outline: 2px solid #00e7ee;
+    outline-offset: 3px;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.3
+   RESPONSIVE OVERVIEW VIEWER
+   ============================================ */
+
+@media (max-width: 700px) {
+
+  /* Overview section */
+  .app .workspace > .section {
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  /* Compact heading */
+  .app .section-head {
+    padding: 12px 14px 8px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .app .section-head h2 {
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+  }
+
+  .app .section-head p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 5px;
+  }
+
+  /* Compact header actions */
+  .app .section-head .actions {
+    flex-shrink: 0;
+  }
+
+  .app .section-head .btn {
+    padding: 7px 9px;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  /* Viewer occupies remaining height */
+  .app .section > .stage {
+    margin: 0 10px 10px;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    border-radius: 14px;
+  }
+
+  /* Smaller information overlays */
+  .app .hud-tl {
+    top: 10px;
+    left: 10px;
+  }
+
+  .app .hud-br {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .app .hud .glass-panel {
+    padding: 8px 10px;
+    border-radius: 10px;
+    max-width: min(240px, 70vw);
+  }
+
+  .app .hud .kicker {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+
+  .app .hud .stat-row {
+    font-size: 9px;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  /* Make space for the fullscreen control */
+  .app:not(.aditi-presentation-mode)
+  > button[aria-label="Enter fullscreen presentation mode"] {
+    bottom: 14px !important;
+    right: 14px !important;
+    left: auto !important;
+    z-index: 50;
+  }
+
+  /* Avoid clipping long labels */
+  .app .glass-panel {
+    overflow-wrap: anywhere;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.4
+   EXPLODED VIEW MOBILE HEADER
+   ============================================ */
+
+@media (max-width: 700px) {
+
+  /* Keep the exploded section inside the screen */
+  .app .exploded-page {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Stack heading and controls vertically */
+  .app .exploded-sticky > .section-head {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px;
+    min-width: 0;
+  }
+
+  /* Heading uses full screen width */
+  .app .exploded-sticky > .section-head > div:first-child {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .app .exploded-sticky > .section-head h2 {
+    font-size: 16px;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .app .exploded-sticky > .section-head p {
+    font-size: 10px;
+    line-height: 1.5;
+    margin-top: 5px;
+    max-width: 100%;
+  }
+
+  /* Controls move below heading */
+  .app .exploded-sticky > .section-head .actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    width: 100%;
+    min-width: 0;
+    gap: 7px !important;
+    align-items: center;
+  }
+
+  /* X-Ray, Connections, and filter buttons */
+  .app .exploded-sticky > .section-head .actions button {
+    flex: 0 1 auto;
+    max-width: 100%;
+    padding: 7px 9px !important;
+    font-size: 10px !important;
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  /* Connection-type filters */
+  .app .exploded-sticky > .section-head .actions > div {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Explosion progress indicator */
+  .app .exploded-sticky .scroll-hint.pill {
+    font-size: 10px;
+    padding: 6px 9px;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.4 — MOBILE HARDWARE SHEET
+   ============================================ */
+
+.aditi-exploded-stage {
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  position: relative;
+  min-height: 0;
+}
+
+.aditi-exploded-toggle,
+.aditi-connection-filters button {
+  padding: 9px 14px;
+  border-radius: 9px;
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  background: rgba(5, 12, 24, 0.85);
+  color: #d8ebf7;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aditi-connection-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.aditi-connection-filters button {
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.aditi-desktop-hardware-panel {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 6;
+  width: 245px;
+  max-height: 58%;
+  overflow-y: auto;
+  padding: 12px;
+  background: rgba(5, 12, 24, 0.92);
+  border: 1px solid rgba(103, 232, 249, 0.3);
+  border-radius: 12px;
+}
+
+.aditi-hardware-list-actions {
+  display: flex;
+  gap: 7px;
+  margin: 11px 0;
+}
+
+.aditi-hardware-list-actions button {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  border-radius: 8px;
+  background: rgba(8, 25, 42, 0.8);
+  color: #a5f3fc;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.aditi-hardware-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(103, 232, 249, 0.12);
+}
+
+.aditi-hardware-select {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 5px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #e8f4ff;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.aditi-hardware-select:disabled {
+  color: #60788b;
+  cursor: default;
+}
+
+.aditi-hardware-visibility {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  border-radius: 8px;
+  background: rgba(34, 211, 238, 0.12);
+  color: #67e8f9;
+  cursor: pointer;
+}
+
+.aditi-hardware-empty {
+  color: #91a8bb;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.aditi-hardware-inspector {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 7;
+  width: 340px;
+  max-width: calc(100% - 36px);
+  max-height: 76%;
+  overflow-y: auto;
+  padding: 17px;
+  background: rgba(5, 12, 24, 0.95);
+  border: 1px solid rgba(103, 232, 249, 0.35);
+  border-radius: 14px;
+}
+
+.aditi-hardware-inspector h3 {
+  margin: 10px 0 8px;
+  font-size: 18px;
+}
+
+.aditi-inspector-category {
+  display: inline-block;
+  padding: 4px 9px;
+  border: 1px solid;
+  border-radius: 20px;
+  font-size: 11px;
+}
+
+.aditi-inspector-description {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(103, 232, 249, 0.17);
+}
+
+.aditi-inspector-description p {
+  margin: 6px 0 12px;
+  color: #a9bfd0;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.aditi-inspector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  margin-top: 17px;
+}
+
+.aditi-inspector-cell {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(103, 232, 249, 0.12);
+  border-radius: 9px;
+  background: rgba(15, 30, 48, 0.78);
+  color: #e8f4ff;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.aditi-inspector-actions {
+  display: grid;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.aditi-exploded-help {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+  z-index: 5;
+  pointer-events: none;
+  max-width: 230px;
+}
+
+.aditi-exploded-help p {
+  margin: 0;
+}
+
+.aditi-mobile-hardware-trigger,
+.aditi-hardware-sheet-backdrop,
+.aditi-mobile-hardware-sheet {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .aditi-desktop-hardware-panel {
+    display: none;
+  }
+
+  .aditi-exploded-help {
+    display: none;
+  }
+
+  .aditi-mobile-hardware-trigger {
+    position: absolute;
+    left: 12px;
+    bottom: 70px;
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: calc(100% - 24px);
+    padding: 12px;
+    border: 1px solid rgba(103, 232, 249, 0.5);
+    border-radius: 12px;
+    background: rgba(5, 12, 24, 0.94);
+    color: #67e8f9;
+    font-size: 11px;
+    cursor: pointer;
+  }
+
+  .aditi-hardware-sheet-backdrop {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 19;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .aditi-mobile-hardware-sheet {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+    display: block;
+    height: min(68%, 420px);
+    padding: 15px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #0c1020;
+    border: 1px solid rgba(103, 232, 249, 0.4);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.5);
+    animation: aditi-sheet-in 240ms ease-out;
+  }
+
+  .aditi-hardware-sheet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #e8f4ff;
+  }
+
+  .aditi-hardware-sheet-header button {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255, 0, 122, 0.4);
+    border-radius: 9px;
+    background: rgba(255, 0, 122, 0.1);
+    color: #ff007a;
+    cursor: pointer;
+  }
+
+  .aditi-hardware-inspector {
+    left: 10px;
+    bottom: 65px;
+    width: calc(100% - 20px);
+    max-width: none;
+    max-height: 65%;
+    padding: 12px;
+  }
+
+  .aditi-inspector-grid {
+    gap: 6px;
+  }
+
+  .aditi-inspector-cell {
+    padding: 8px;
+  }
+
+  .aditi-exploded-actions {
+    gap: 7px !important;
+  }
+}
+
+@keyframes aditi-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aditi-mobile-hardware-sheet {
+    animation: none;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.4 — MOBILE INSPECTOR FIX
+   ============================================ */
+
+@media (max-width: 700px) {
+
+  /* Position the inspector as a compact bottom panel */
+  .app .aditi-hardware-inspector {
+    position: absolute;
+    top: auto !important;
+    bottom: 64px !important;
+    left: 10px !important;
+    right: 10px !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    /* Keep most of the 3D scene visible */
+    max-height: 180px !important;
+    min-height: 0;
+
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+
+    padding: 12px !important;
+    border-radius: 12px !important;
+
+    z-index: 12;
+  }
+
+  .app .aditi-hardware-inspector h3 {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  .app .aditi-hardware-inspector .kicker {
+    font-size: 9px;
+  }
+
+  .app .aditi-hardware-inspector p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .app .aditi-hardware-inspector .aditi-inspector-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ============================================
+   ADITI — COLLAPSIBLE MOBILE INSPECTOR
+   ============================================ */
+
+/* Hidden on desktop */
+.aditi-mobile-inspector-bar,
+.aditi-mobile-inspector-backdrop,
+.aditi-mobile-inspector-sheet-header {
+  display: none;
+}
+
+@media (max-width: 700px) {
+
+  /* Hide the large inspector by default */
+  .app .aditi-hardware-inspector {
+    display: none !important;
+  }
+
+  /* Compact inspection bar */
+  .app .aditi-mobile-inspector-bar {
+    position: absolute;
+    bottom: 68px;
+    left: 10px;
+    right: 10px;
+    z-index: 15;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 0;
+    padding: 10px;
+
+    background: rgba(8, 12, 26, 0.96);
+    border: 1px solid rgba(0, 231, 238, 0.45);
+    border-radius: 12px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .aditi-mobile-inspector-name {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .aditi-mobile-inspector-name .kicker {
+    font-size: 8px;
+    margin-bottom: 4px;
+    color: #00e7ee;
+  }
+
+  .aditi-mobile-inspector-name strong {
+    display: block;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #f5eafa;
+  }
+
+  .aditi-mobile-details-button,
+  .aditi-mobile-return-button {
+    flex-shrink: 0;
+    padding: 9px;
+    border: 1px solid rgba(255, 0, 122, 0.45);
+    border-radius: 8px;
+    background: rgba(255, 0, 122, 0.1);
+    color: #ff80ba;
+    font-size: 10px;
+    cursor: pointer;
+  }
+
+  /* Dark backdrop behind expanded sheet */
+  .app .aditi-mobile-inspector-backdrop {
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: 19;
+    padding: 0;
+    border: none;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  /* Expanded inspector sheet */
+  .app .aditi-hardware-inspector.aditi-inspector-expanded {
+    display: block !important;
+
+    position: absolute !important;
+    top: auto !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    max-width: none !important;
+    max-height: min(72%, 450px) !important;
+    height: auto !important;
+
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+
+    padding: 16px !important;
+    border-radius: 18px 18px 0 0 !important;
+
+    background: #0c1020;
+    z-index: 20;
+
+    animation: aditi-sheet-in 240ms ease-out;
+  }
+
+  .app .aditi-mobile-inspector-sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid rgba(0, 231, 238, 0.2);
+  }
+
+  .aditi-mobile-inspector-sheet-header strong {
+    font-size: 13px;
+    color: #f5eafa;
+  }
+
+  .aditi-mobile-inspector-sheet-header button {
+    flex-shrink: 0;
+    padding: 9px;
+    border: 1px solid rgba(0, 231, 238, 0.35);
+    border-radius: 8px;
+    background: rgba(0, 231, 238, 0.08);
+    color: #00e7ee;
+    cursor: pointer;
+    font-size: 10px;
+  }
+}
+
+
+/* ============================================
+   ADITI PHASE 8.7.5
+   MOBILE COMPONENT EXPLORER
+   ============================================ */
+
+/* Desktop: retain existing layout */
+.aditi-explorer-mobile-selector {
+  display: none;
+}
+
+@media (max-width: 700px) {
+
+  /* Main explorer stage */
+  .app .stage.canvas-fill:has(.aditi-explorer-split) {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Selected component bar */
+  .app .aditi-explorer-mobile-selector {
+    display: block;
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    background: #100a1b;
+    border-bottom: 1px solid rgba(255, 0, 122, 0.25);
+    z-index: 5;
+  }
+
+  .aditi-explorer-selector-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    background: rgba(0, 231, 238, 0.06);
+    border: 1px solid rgba(0, 231, 238, 0.45);
+    border-radius: 10px;
+    color: #f5f0fa;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .aditi-explorer-selector-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+  }
+
+  .aditi-explorer-selector-label {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #00e7ee;
+  }
+
+  .aditi-explorer-selector-text strong {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* One-column mobile viewer */
+  .app .aditi-explorer-split {
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative;
+    flex: 1 1 auto;
+    height: auto !important;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Hide the library until requested */
+  .app .aditi-explorer-library {
+    display: none !important;
+  }
+
+  /* Expand the library as a scrollable overlay */
+  .app .aditi-explorer-library.aditi-library-open {
+    display: flex !important;
+    position: absolute;
+    inset: 0;
+    z-index: 40;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    background: #0c0716;
+    border: 1px solid rgba(255, 0, 122, 0.25);
+    box-sizing: border-box;
+  }
+
+  /* Give the model the remaining space */
+  .app .aditi-explorer-viewer {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+
+
+/* ==========================================
+   ADITI PHASE G — HARDWARE VIEWER LAYOUT FIX
+========================================== */
+
+/* Only change scrolling when architecture is open */
+.section.aditi-overview-architecture-open {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+
+  /* Preserve a predictable vertical layout */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Keep the original header dimensions */
+.section.aditi-overview-architecture-open > .section-header {
+  flex: 0 0 auto;
+}
+
+/* Preserve a dedicated 3D viewing area */
+.section.aditi-overview-architecture-open > .stage {
+  flex: 0 0 auto;
+  height: 520px;
+  min-height: 520px;
+  position: relative;
+}
+
+/* Architecture Explorer appears below the stage */
+.section.aditi-overview-architecture-open > .aditi-phase-g-explorer {
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+  margin: 16px;
+}
+
+/* Prevent the architecture panel from affecting
+   the 3D canvas sizing */
+.section.aditi-overview-architecture-open canvas {
+  display: block;
+}
+
+@media (max-width: 700px) {
+  .section.aditi-overview-architecture-open > .stage {
+    height: 380px;
+    min-height: 380px;
+  }
+}
+
+
+/* ============================================================
+   ADITI — DASHBOARD LAYOUT & SIDEBAR SCROLL FIX
+   Phase K.7
+   Keeps sidebar and workspace inside the viewport
+   ============================================================ */
+
+/* Desktop and tablet dashboard shell */
+@media (min-width: 701px) {
+  .app:not(.aditi-presentation-mode) {
+    height: 100dvh;
+    min-height: 0;
+    grid-template-rows: 76px minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  /* Sidebar remains inside its assigned grid area */
+  .app:not(.aditi-presentation-mode) > .sidebar {
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 0, 122, 0.6) #0c0916;
+  }
+
+  /* Navigation buttons retain their intended height */
+  .app:not(.aditi-presentation-mode)
+  > .sidebar .nav-btn {
+    flex-shrink: 0;
+  }
+
+  /* Footer remains reachable by scrolling */
+  .app:not(.aditi-presentation-mode)
+  > .sidebar .sidebar-foot {
+    flex-shrink: 0;
+  }
+
+  /* Workspace cannot expand the grid beyond the viewport */
+  .app:not(.aditi-presentation-mode) > .workspace {
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Mobile sidebar continues using the existing drawer */
+@media (max-width: 700px) {
+  .app:not(.aditi-presentation-mode) > .sidebar {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+  }
+}
+
+/* Presentation mode retains its existing fullscreen behavior */
+.app.aditi-presentation-mode {
+  min-height: 0;
+}
+
+.app.aditi-presentation-mode > .workspace {
+  min-height: 0;
+}
+
+/* Keyboard-accessible scrollbar focus */
+.app > .sidebar:focus-within {
+  scrollbar-color: rgba(0, 231, 238, 0.75) #0c0916;
+}
+
+
+/* ============================================
+   ADITI MOBILE DASHBOARD — RESPONSIVE OVERRIDES
+   ============================================ */
+
+@media (max-width: 980px) {
+  .app:not(.aditi-presentation-mode) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    width: 100%;
+    height: 100dvh;
+    overflow: hidden;
+  }
+
+  .app:not(.aditi-presentation-mode) .topbar {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    z-index: 210;
+  }
+
+  .app:not(.aditi-presentation-mode) .workspace {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  /* Mobile and landscape navigation drawer */
+  .app:not(.aditi-presentation-mode) .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 310;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: min(310px, 86vw);
+    height: 100dvh;
+    padding: 20px 14px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: #0b0714;
+    border-right: 1px solid rgba(255, 0, 122, 0.35);
+    border-bottom: none;
+
+    transform: translateX(-105%);
+    visibility: hidden;
+    transition:
+      transform 220ms ease,
+      visibility 220ms ease;
+  }
+
+  .app.mobile-menu-open .sidebar {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .app:not(.aditi-presentation-mode) .sidebar .nav-label,
+  .app:not(.aditi-presentation-mode) .sidebar .sidebar-foot {
+    display: block;
+  }
+
+  .app:not(.aditi-presentation-mode) .sidebar .nav-btn {
+    width: 100%;
+    min-width: 0;
+    flex-shrink: 0;
+  }
+
+  .app .mobile-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    border: 0;
+    background: rgba(0, 0, 0, 0.68);
+    cursor: pointer;
+  }
+
+  /* Keep the eye toggle accessible */
+  .app .aditi-eye-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  /* Overview heading and buttons */
+  .app .section {
+    min-width: 0;
+  }
+
+  .app .section-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px 12px 10px;
+  }
+
+  .app .section-head h2 {
+    font-size: clamp(16px, 4vw, 21px);
+    overflow-wrap: anywhere;
+  }
+
+  .app .section-head p {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .app .section-head .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .app .section-head .actions > * {
+    flex: 1 1 auto;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  /* 3D viewport remains interactive */
+  .app .stage {
+    min-width: 0;
+    margin: 0 10px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app:not(.aditi-presentation-mode) .topbar {
+    padding: 10px;
+  }
+
+  .app .brand {
+    min-width: 0;
+    gap: 8px;
+  }
+
+  .app .brand h1 {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+
+  .app .brand p,
+  .app .top-meta {
+    display: none;
+  }
+
+  .app .section-head {
+    padding: 12px 10px;
+  }
+
+  .app .section-head .actions .btn {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  /* Avoid floating HUD cards covering the model */
+  .app .hud-tl,
+  .app .hud-tr,
+  .app .hud-bl,
+  .app .hud-br {
+    max-width: calc(100% - 20px);
+  }
+
+  .app .hud-tl {
+    top: 10px;
+    left: 10px;
+  }
+
+  .app .hud-tr {
+    top: 10px;
+    right: 10px;
+  }
+
+  .app .hud-bl {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .app .hud-br {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .app .hud .glass-panel {
+    max-width: 100%;
+    padding: 8px;
+    font-size: 10px;
+  }
+}
+
+/* Short landscape phones */
+@media (max-width: 980px) and (orientation: landscape) {
+  .app:not(.aditi-presentation-mode) .sidebar {
+    width: min(310px, 48vw);
+  }
+
+  .app .section-head {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .app .section-head .actions {
+    width: auto;
+    max-width: 55%;
+  }
+}
+
+
+/* ADITI — Landscape eye navigation fix */
+@media (max-width: 980px) {
+  .app:not(.aditi-presentation-mode)
+  .aditi-eye-nav-button {
+    display: inline-flex !important;
+    pointer-events: auto !important;
+    cursor: pointer !important;
+    touch-action: manipulation;
+    position: relative;
+    z-index: 400;
+  }
+
+  .app:not(.aditi-presentation-mode)
+  .sidebar {
+    z-index: 350 !important;
+    pointer-events: none;
+  }
+
+  .app.mobile-menu-open:not(.aditi-presentation-mode)
+  .sidebar {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+
+  .app.mobile-menu-open
+  .mobile-menu-backdrop {
+    z-index: 300;
+  }
+}

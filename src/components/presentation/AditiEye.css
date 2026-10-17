@@ -1,0 +1,289 @@
+
+/* ==========================================
+   ADITI — HOLOGRAPHIC AI EYE
+   CLEAN ANIMATION SYSTEM
+========================================== */
+
+/* MAIN STAGE */
+
+.aditi-eye-stage {
+  position: relative;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  isolation: isolate;
+  color: #e9fcff;
+}
+
+/* AMBIENT GLOW */
+
+.aditi-eye-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      rgba(0, 231, 238, 0.16),
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(255, 0, 122, 0.08),
+      transparent 75%
+    );
+
+  animation: aditi-ambient-pulse 5s ease-in-out infinite;
+}
+
+/* EYE SYSTEM */
+
+.aditi-eye-system {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 1;
+  margin: 0 auto;
+
+  display: grid;
+  place-items: center;
+}
+
+/* HOLOGRAPHIC RINGS */
+
+.aditi-eye-orbit {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+  pointer-events: none;
+}
+
+.aditi-eye-orbit-one {
+  inset: 3%;
+  border-top-color: #00e7ee;
+  border-bottom-color: #ff007a;
+
+  animation: aditi-orbit-rotation 15s linear infinite;
+}
+
+.aditi-eye-orbit-two {
+  inset: 12%;
+  border-left-color: #ff007a;
+  border-right-color: #00e7ee;
+
+  animation: aditi-orbit-rotation 11s linear infinite reverse;
+}
+
+.aditi-eye-orbit-three {
+  inset: 23%;
+  border: 1px dashed rgba(0, 231, 238, 0.5);
+
+  animation: aditi-orbit-rotation 18s linear infinite;
+}
+
+/* CROSSHAIRS */
+
+.aditi-eye-crosshair {
+  position: absolute;
+  background: rgba(0, 231, 238, 0.12);
+  pointer-events: none;
+}
+
+.aditi-eye-crosshair-h {
+  width: 100%;
+  height: 1px;
+}
+
+.aditi-eye-crosshair-v {
+  width: 1px;
+  height: 100%;
+}
+
+/* ==========================================
+   MAIN BLINK ANIMATION
+
+   Animate the HTML wrapper rather than
+   the internal SVG group.
+========================================== */
+
+.aditi-eye-blink-wrapper {
+  position: relative;
+  z-index: 2;
+
+  width: 88%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform-origin: center center;
+
+  animation:
+    aditi-eye-close-open 4s linear infinite;
+}
+
+/* SVG */
+
+.aditi-eye-svg {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+
+  filter:
+    drop-shadow(
+      0 0 14px rgba(0, 231, 238, 0.3)
+    );
+}
+
+/* SVG GROUP — NO SECOND BLINK */
+
+.aditi-eye-blink {
+  transform: none;
+  animation: none;
+}
+
+/* IRIS MOVEMENT */
+
+.aditi-eye-gaze {
+  animation:
+    aditi-eye-look-around 8s ease-in-out infinite;
+}
+
+/* SCANNING BEAM */
+
+.aditi-eye-scan {
+  transform-origin: center;
+
+  animation:
+    aditi-eye-scan-line 4s ease-in-out infinite;
+}
+
+/* ==========================================
+   KEYFRAMES
+========================================== */
+
+/* Noticeable mechanical eye blink */
+
+@keyframes aditi-eye-close-open {
+
+  0%,
+  25%,
+  45%,
+  65%,
+  85%,
+  100% {
+    transform: scaleY(1);
+  }
+
+  30%,
+  70% {
+    transform: scaleY(0.015);
+  }
+
+  35%,
+  75% {
+    transform: scaleY(1);
+  }
+}
+
+/* Iris moves slightly */
+
+@keyframes aditi-eye-look-around {
+
+  0%,
+  20%,
+  100% {
+    transform: translateX(0);
+  }
+
+  35%,
+  45% {
+    transform: translateX(-13px);
+  }
+
+  65%,
+  75% {
+    transform: translateX(13px);
+  }
+}
+
+/* Rotating HUD rings */
+
+@keyframes aditi-orbit-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Scanning beam movement */
+
+@keyframes aditi-eye-scan-line {
+
+  0%,
+  100% {
+    transform: translateY(-28px);
+    opacity: 0.1;
+  }
+
+  50% {
+    transform: translateY(28px);
+    opacity: 0.75;
+  }
+}
+
+/* Ambient energy pulse */
+
+@keyframes aditi-ambient-pulse {
+
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 900px) {
+
+  .aditi-eye-system {
+    width: min(100%, 330px);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .aditi-eye-system {
+    width: min(100%, 270px);
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .aditi-eye-ambient,
+  .aditi-eye-orbit,
+  .aditi-eye-blink-wrapper,
+  .aditi-eye-gaze,
+  .aditi-eye-scan {
+    animation: none;
+  }
+}

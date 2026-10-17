@@ -1,0 +1,285 @@
+
+.aditi-failure-panel {
+  margin-top: 22px;
+  padding: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-failure-header {
+  margin-bottom: 20px;
+}
+
+.aditi-failure-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-failure-header h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-failure-header p,
+.aditi-failure-section-title p {
+  margin: 0;
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.aditi-failure-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.aditi-failure-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-failure-controls select {
+  width: 100%;
+  padding: 11px;
+  background: #20162f;
+  color: #f5efff;
+  border: 1px solid #49335c;
+  border-radius: 8px;
+}
+
+.aditi-failure-controls button,
+.aditi-failure-batch button {
+  padding: 11px 15px;
+  background: #3d183c;
+  color: #ff9ad0;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aditi-failure-controls button:hover,
+.aditi-failure-batch button:hover {
+  background: #54204f;
+}
+
+.aditi-failure-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aditi-failure-sensor-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 13px;
+  margin: 15px 0 20px;
+  background: #1c152c;
+  border: 1px solid #382849;
+  border-radius: 9px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-failure-sensor-info strong {
+  color: #f5efff;
+}
+
+.aditi-failure-required {
+  color: #34d399;
+}
+
+.aditi-failure-optional {
+  color: #fbbf24;
+}
+
+.aditi-failure-single,
+.aditi-failure-batch {
+  padding: 16px;
+  margin-top: 18px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 12px;
+}
+
+.aditi-failure-section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.aditi-failure-section-title h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.aditi-failure-pass {
+  color: #34d399;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aditi-failure-fail {
+  color: #fb7185;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aditi-failure-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.aditi-failure-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-failure-stats span {
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-failure-stats strong {
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+
+.aditi-failure-stats .success {
+  color: #34d399;
+}
+
+.aditi-failure-stats .failure {
+  color: #fb7185;
+}
+
+.aditi-failure-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-failure-comparison > div {
+  padding: 15px;
+  background: #241a34;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-failure-comparison h4 {
+  margin: 0 0 15px;
+  color: #22d3ee;
+  font-size: 13px;
+}
+
+.aditi-failure-comparison p {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 9px 0;
+  color: #ad9cbe;
+  font-size: 12px;
+}
+
+.aditi-failure-comparison strong {
+  color: #f5efff;
+  text-align: right;
+}
+
+.aditi-failure-observation {
+  margin: 15px 0 0;
+  font-size: 12px;
+  color: #ad9cbe;
+}
+
+.aditi-failure-observation strong {
+  color: #f5efff;
+}
+
+.aditi-failure-error {
+  padding: 12px;
+  margin: 12px 0;
+  background: #391d30;
+  color: #fb7185;
+  border-radius: 8px;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.aditi-failure-table-wrapper {
+  max-height: 420px;
+  overflow: auto;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-failure-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.aditi-failure-table th,
+.aditi-failure-table td {
+  padding: 11px;
+  border-bottom: 1px solid #382849;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.aditi-failure-table th {
+  position: sticky;
+  top: 0;
+  background: #281b39;
+  color: #d8c6e8;
+}
+
+.aditi-failure-table td {
+  color: #b9abc9;
+}
+
+.aditi-failure-note {
+  margin: 18px 0 0;
+  color: #9686a8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1000px) {
+  .aditi-failure-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aditi-failure-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-failure-controls,
+  .aditi-failure-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-failure-section-title {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

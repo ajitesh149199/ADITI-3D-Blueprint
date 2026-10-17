@@ -1,0 +1,180 @@
+
+.aditi-evaluation-panel {
+  padding: 22px;
+  margin-top: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-evaluation-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.aditi-evaluation-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-evaluation-header h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-evaluation-header p {
+  margin: 0;
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.aditi-evaluation-run {
+  padding: 11px 16px;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  background: #3d183c;
+  color: #ff9ad0;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.aditi-evaluation-run:hover {
+  background: #54204f;
+}
+
+.aditi-evaluation-empty {
+  padding: 30px 15px;
+  text-align: center;
+  color: #a99ab9;
+  border: 1px dashed #453252;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.aditi-evaluation-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.aditi-evaluation-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  background: #1c152c;
+  border: 1px solid #382849;
+  border-radius: 10px;
+}
+
+.aditi-evaluation-stat span {
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-evaluation-stat strong {
+  font-size: 25px;
+}
+
+.aditi-evaluation-stat strong.passed,
+.aditi-evaluation-status.passed,
+.check-pass {
+  color: #34d399;
+}
+
+.aditi-evaluation-stat strong.failed,
+.aditi-evaluation-status.failed,
+.check-fail {
+  color: #fb7185;
+}
+
+.aditi-evaluation-results {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-evaluation-result {
+  padding: 14px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 10px;
+  min-width: 0;
+}
+
+.aditi-evaluation-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.aditi-evaluation-result-header h3 {
+  margin: 0 0 5px;
+  font-size: 13px;
+}
+
+.aditi-evaluation-result-header div > span {
+  font-size: 10px;
+  color: #a99ab9;
+}
+
+.aditi-evaluation-status {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.aditi-evaluation-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aditi-evaluation-check {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1.5fr 20px;
+  gap: 6px;
+  align-items: center;
+  font-size: 10px;
+  color: #cbbdd9;
+}
+
+.aditi-evaluation-check .check-name {
+  text-transform: capitalize;
+  color: #e9dff5;
+  font-weight: 600;
+}
+
+.aditi-evaluation-error {
+  color: #fb7185;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .aditi-evaluation-results {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .aditi-evaluation-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .aditi-evaluation-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aditi-evaluation-check {
+    grid-template-columns: 1fr 1fr;
+  }
+}

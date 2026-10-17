@@ -1,0 +1,175 @@
+
+.aditi-dynamic-verification {
+  margin-top: 22px;
+  padding: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-dynamic-verification header {
+  margin-bottom: 20px;
+}
+
+.aditi-dynamic-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-dynamic-verification h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-dynamic-verification header p {
+  color: #a99ab9;
+  font-size: 12px;
+  margin: 0;
+}
+
+.aditi-dynamic-controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.aditi-dynamic-controls label {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-dynamic-controls select {
+  padding: 11px;
+  background: #20162f;
+  color: #f5efff;
+  border: 1px solid #49335c;
+  border-radius: 8px;
+}
+
+.aditi-dynamic-controls button {
+  padding: 11px 16px;
+  background: #3d183c;
+  color: #ff9ad0;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.aditi-dynamic-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aditi-dynamic-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.aditi-dynamic-stats > div {
+  padding: 15px;
+  background: #1c152c;
+  border: 1px solid #382849;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.aditi-dynamic-stats span {
+  font-size: 11px;
+  color: #ad9cbe;
+}
+
+.aditi-dynamic-stats strong {
+  font-size: 21px;
+}
+
+.aditi-dynamic-section {
+  margin-top: 17px;
+  padding: 17px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 12px;
+}
+
+.aditi-dynamic-section h3 {
+  font-size: 15px;
+  margin: 0 0 14px;
+}
+
+.aditi-dynamic-section p {
+  font-size: 12px;
+  color: #ad9cbe;
+}
+
+.aditi-dynamic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aditi-dynamic-tags span {
+  padding: 7px 11px;
+  background: #302041;
+  color: #22d3ee;
+  border: 1px solid #49335c;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.aditi-dynamic-table-wrap {
+  overflow: auto;
+  max-height: 350px;
+}
+
+.aditi-dynamic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.aditi-dynamic-table th,
+.aditi-dynamic-table td {
+  padding: 11px;
+  text-align: left;
+  border-bottom: 1px solid #382849;
+}
+
+.aditi-dynamic-table th {
+  color: #d8c6e8;
+}
+
+.aditi-dynamic-table td {
+  color: #b9abc9;
+}
+
+.aditi-dynamic-error {
+  padding: 12px;
+  margin-bottom: 14px;
+  background: #391d30;
+  color: #fb7185;
+  border-radius: 8px;
+}
+
+.aditi-dynamic-note {
+  margin: 18px 0 0;
+  color: #9686a8;
+  font-size: 11px;
+}
+
+@media (max-width: 750px) {
+  .aditi-dynamic-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

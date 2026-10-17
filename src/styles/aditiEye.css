@@ -1,0 +1,169 @@
+/* =========================================================
+   ADITI SHARED EYE
+   Startup = animated blink
+   Home / navigation = same eye, different scale
+========================================================= */
+
+.aditi-eye {
+    width: 320px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+}
+
+.aditi-eye-svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Clean almond opening — no centre notch and no crossing arcs. */
+.aditi-eye-fill {
+    fill: rgba(2, 4, 8, 0.96);
+}
+
+.aditi-eye-upper-lid,
+.aditi-eye-lower-lid {
+    fill: none;
+    stroke: #ff007a;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+}
+
+.aditi-eye-upper-lid {
+    stroke-width: 2.3;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 122, 0.75));
+}
+
+.aditi-eye-lower-lid {
+    stroke-width: 1.8;
+    opacity: 0.82;
+    filter: drop-shadow(0 0 4px rgba(255, 0, 122, 0.48));
+}
+
+.aditi-eye-lashes {
+    fill: none;
+    stroke: #ff007a;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.62;
+    filter: drop-shadow(0 0 3px rgba(255, 0, 122, 0.5));
+}
+
+.aditi-eye-iris-outer, 
+.aditi-eye-iris-middle, 
+.aditi-eye-iris-inner { 
+    fill: rgba(0, 231, 238, 0.018); 
+    stroke: #00e7ee; 
+
+    transform-box: view-box;
+    transform-origin: 160px 88px;
+    transform: scale(0.86);
+
+    filter: drop-shadow(
+        0 0 5px 
+        rgba(0, 231, 238, 0.55)
+    ); 
+}
+
+.aditi-eye-iris-outer {
+    stroke-width: 2.1;
+    opacity: 0.96;
+}
+
+.aditi-eye-iris-middle {
+    stroke-width: 1.45;
+    opacity: 0.72;
+}
+
+.aditi-eye-iris-inner {
+    stroke-width: 1.1;
+    opacity: 0.48;
+}
+
+.aditi-eye-pupil {
+    fill: #ff007a;
+    filter: drop-shadow(0 0 7px rgba(255, 0, 122, 0.9));
+}
+
+.aditi-eye-highlight {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(0, 231, 238, 0.9));
+}
+
+/*
+   Blink the actual eyelid opening around the eye centre.
+   Explicit SVG coordinates are used instead of transform-box/fill-box,
+   which was unreliable in the previous version.
+*/
+.aditi-eye-blink-group {
+    transform-origin: 160px 88px;
+    transform: scaleY(1);
+}
+
+.aditi-eye-blinking .aditi-eye-blink-group {
+    animation: aditiEyeBlink 2.25s ease-in-out infinite;
+}
+
+/* Lashes move slightly down with the upper lid during the blink. */
+.aditi-eye-blinking .aditi-eye-lashes {
+    transform-origin: 160px 88px;
+    animation: aditiEyeLashBlink 2.25s ease-in-out infinite;
+}
+
+@keyframes aditiEyeBlink {
+    0%, 38%, 46%, 78%, 86%, 100% {
+        transform: scaleY(1);
+    }
+    42%, 82% {
+        transform: scaleY(0.045);
+    }
+}
+
+@keyframes aditiEyeLashBlink {
+    0%, 38%, 46%, 78%, 86%, 100% {
+        transform: translateY(0);
+    }
+    42%, 82% {
+        transform: translateY(18px);
+    }
+}
+
+.aditi-eye-medium {
+    width: 285px;
+    height: 152px;
+}
+
+.aditi-eye-small {
+    width: 48px;
+    height: 29px;
+}
+
+.aditi-eye-small .aditi-eye-lashes {
+    stroke-width: 2;
+}
+
+.aditi-eye-small .aditi-eye-upper-lid,
+.aditi-eye-small .aditi-eye-lower-lid {
+    stroke-width: 2.4;
+}
+
+.aditi-eye-small .aditi-eye-iris-inner {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .aditi-eye-large {
+        width: 285px;
+        height: 152px;
+    }
+
+    .aditi-eye-medium {
+        width: 250px;
+        height: 133px;
+    }
+}

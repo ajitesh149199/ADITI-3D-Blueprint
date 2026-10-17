@@ -1,0 +1,916 @@
+
+/* =========================================
+   ADITI — HOLOGRAPHIC PRESENTATION
+   PHASE P DESIGN UPGRADE / STEP 2
+========================================= */
+
+.aditi-presentation {
+  --aditi-cyan: #00e7ee;
+  --aditi-pink: #ff007a;
+  --aditi-violet: #a78bfa;
+  --aditi-muted: #b2a5c0;
+
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #f5f0fa;
+  background:
+    radial-gradient(
+      ellipse at 52% 40%,
+      rgba(74, 28, 112, 0.25),
+      transparent 58%
+    ),
+    #080510;
+  font-family: 'Space Mono', monospace;
+}
+
+.aditi-presentation *,
+.aditi-presentation *::before,
+.aditi-presentation *::after {
+  box-sizing: border-box;
+}
+
+.aditi-presentation::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(0, 231, 238, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 231, 238, 0.035) 1px,
+      transparent 1px
+    );
+  background-size: 46px 46px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 20%,
+    transparent 85%
+  );
+}
+
+.aditi-presentation-header,
+.aditi-presentation-footer {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px 26px;
+  background: rgba(12, 7, 22, 0.86);
+  border-color: rgba(0, 231, 238, 0.18);
+}
+
+.aditi-presentation-header {
+  border-bottom: 1px solid rgba(0, 231, 238, 0.18);
+}
+
+.aditi-presentation-footer {
+  border-top: 1px solid rgba(0, 231, 238, 0.18);
+}
+
+.aditi-presentation-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.aditi-presentation-brand strong {
+  color: var(--aditi-cyan);
+  letter-spacing: 3px;
+  font-size: 14px;
+}
+
+.aditi-presentation-brand span {
+  color: var(--aditi-muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.aditi-presentation-controls,
+.aditi-presentation-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.aditi-hud-button {
+  border: 1px solid rgba(0, 231, 238, 0.32);
+  border-radius: 8px;
+  background: rgba(0, 231, 238, 0.07);
+  color: #e9fcff;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.aditi-hud-button:hover:not(:disabled) {
+  border-color: var(--aditi-cyan);
+  background: rgba(0, 231, 238, 0.13);
+  box-shadow: 0 0 18px rgba(0, 231, 238, 0.12);
+}
+
+.aditi-hud-button:focus-visible,
+.aditi-slide-dot:focus-visible {
+  outline: 2px solid var(--aditi-cyan);
+  outline-offset: 3px;
+}
+
+.aditi-hud-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.aditi-hud-button-primary {
+  border-color: rgba(255, 0, 122, 0.55);
+  background: rgba(255, 0, 122, 0.14);
+  color: #ff76b5;
+}
+
+.aditi-presentation-workspace {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: clamp(18px, 3vw, 38px);
+  scrollbar-width: thin;
+  scrollbar-color: #ff007a #140d24;
+}
+
+.aditi-presentation-content {
+  width: min(100%, 1350px);
+  min-height: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(290px, 0.8fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 60px);
+  animation: aditi-slide-reveal 0.45s ease both;
+}
+
+.aditi-presentation-eyebrow {
+  color: var(--aditi-cyan);
+  letter-spacing: 2.5px;
+  font-size: 11px;
+  margin-bottom: 18px;
+}
+
+.aditi-presentation-title {
+  font-size: clamp(36px, 5vw, 76px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin: 0;
+  overflow-wrap: anywhere;
+  text-shadow: 0 0 35px rgba(255, 0, 122, 0.22);
+}
+
+.aditi-presentation-subtitle {
+  margin-top: 16px;
+  color: #ff76b5;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.aditi-presentation-body {
+  color: #bdb0cc;
+  font-size: clamp(13px, 1.3vw, 16px);
+  line-height: 1.9;
+  max-width: 720px;
+  margin: 24px 0;
+}
+
+.aditi-presentation-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.aditi-presentation-point {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  min-width: 0;
+  border: 1px solid rgba(0, 231, 238, 0.18);
+  border-radius: 10px;
+  background: rgba(22, 13, 36, 0.78);
+  color: #e8e0f0;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.aditi-presentation-point-number {
+  color: var(--aditi-cyan);
+  font-weight: bold;
+}
+
+.aditi-presentation-demo {
+  margin-top: 24px;
+}
+
+.aditi-hologram-panel {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(0, 231, 238, 0.23);
+  border-radius: 18px;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(0, 231, 238, 0.09),
+      transparent 57%
+    ),
+    rgba(13, 8, 25, 0.8);
+  box-shadow: inset 0 0 60px rgba(0, 231, 238, 0.035);
+}
+
+.aditi-hologram-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(0, 231, 238, 0.065) 50%,
+    transparent 100%
+  );
+  background-size: 100% 180px;
+  animation: aditi-scan 6s linear infinite;
+}
+
+.aditi-hologram-label {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: var(--aditi-cyan);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.aditi-hologram-status {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  color: var(--aditi-muted);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.aditi-hologram-core {
+  position: relative;
+  width: min(68%, 260px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.aditi-hologram-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.aditi-hologram-ring-one {
+  inset: 0;
+  border-top-color: var(--aditi-cyan);
+  border-bottom-color: var(--aditi-pink);
+  animation: aditi-hud-spin 13s linear infinite;
+}
+
+.aditi-hologram-ring-two {
+  inset: 14%;
+  border-left-color: var(--aditi-pink);
+  border-right-color: var(--aditi-cyan);
+  animation: aditi-hud-spin 9s linear infinite reverse;
+}
+
+.aditi-hologram-ring-three {
+  inset: 29%;
+  border: 1px dashed var(--aditi-cyan);
+  animation: aditi-hud-spin 17s linear infinite;
+}
+
+.aditi-hologram-letter {
+  color: var(--aditi-cyan);
+  font-size: clamp(42px, 5vw, 66px);
+  font-weight: bold;
+  text-shadow: 0 0 25px rgba(0, 231, 238, 0.7);
+}
+
+.aditi-hologram-caption {
+  margin-top: 22px;
+  color: #e8e0f0;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.aditi-presentation-progress {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.aditi-presentation-counter {
+  color: var(--aditi-muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.aditi-slide-timeline {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.aditi-slide-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #4b355d;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.aditi-slide-dot.active {
+  width: 23px;
+  border-radius: 8px;
+  background: var(--aditi-cyan);
+  box-shadow: 0 0 12px rgba(0, 231, 238, 0.55);
+}
+
+.aditi-presentation-error {
+  color: #ff8dbb;
+  font-size: 12px;
+}
+
+@keyframes aditi-hud-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aditi-scan {
+  from { background-position: 0 -180px; }
+  to { background-position: 0 600px; }
+}
+
+@keyframes aditi-slide-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .aditi-presentation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-hologram-panel {
+    min-height: 290px;
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-presentation-header,
+  .aditi-presentation-footer {
+    padding: 12px;
+  }
+
+  .aditi-presentation-points {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-slide-timeline {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aditi-presentation-content,
+  .aditi-hologram-ring,
+  .aditi-hologram-panel::after {
+    animation: none;
+  }
+
+  .aditi-hud-button,
+  .aditi-slide-dot {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   SLIDE 1 — CINEMATIC HERO LAYOUT
+========================================= */
+
+.aditi-presentation-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+  padding: 18px 0;
+}
+
+.aditi-presentation-hero > section {
+  display: contents;
+}
+
+.aditi-presentation-hero .aditi-presentation-eyebrow {
+  order: 0;
+  margin: 0 0 12px;
+  color: #00e7ee;
+}
+
+.aditi-presentation-hero .aditi-presentation-title {
+  order: 1;
+  font-size: clamp(56px, 8vw, 110px);
+  letter-spacing: 12px;
+  line-height: 1;
+  text-shadow:
+    0 0 28px rgba(255, 0, 122, 0.25),
+    0 0 65px rgba(0, 231, 238, 0.12);
+}
+
+.aditi-presentation-hero .aditi-presentation-subtitle {
+  order: 2;
+  max-width: 720px;
+  margin: 15px 0 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.aditi-presentation-hero .aditi-eye-stage {
+  order: 3;
+  width: min(100%, 510px);
+  min-height: 0;
+  margin: 4px auto 0;
+}
+
+.aditi-presentation-hero .aditi-eye-system {
+  width: min(100%, 330px);
+}
+
+.aditi-presentation-hero .aditi-presentation-body {
+  order: 4;
+  max-width: 700px;
+  margin: 4px 0 15px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.aditi-presentation-hero .aditi-presentation-points {
+  order: 5;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  width: 100%;
+}
+
+.aditi-presentation-hero .aditi-presentation-point {
+  padding: 9px 12px;
+  font-size: 10px;
+  border-radius: 6px;
+  background: rgba(0, 231, 238, 0.05);
+}
+
+.aditi-presentation-hero .aditi-presentation-point-number {
+  font-size: 9px;
+}
+
+@media (max-height: 780px) {
+  .aditi-presentation-hero .aditi-eye-system {
+    width: min(100%, 260px);
+  }
+
+  .aditi-presentation-hero .aditi-presentation-title {
+    font-size: clamp(46px, 7vw, 82px);
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-presentation-hero .aditi-presentation-title {
+    letter-spacing: 5px;
+  }
+
+  .aditi-presentation-hero .aditi-presentation-points {
+    display: none;
+  }
+}
+
+
+/* ==============================================
+   ADITI — PHASE P / STEP 4.2
+   DYNAMIC PRESENTATION LAYOUTS
+============================================== */
+
+.aditi-presentation-content {
+  position: relative;
+  display: grid;
+  width: min(100%, 1380px);
+  min-height: 100%;
+  margin: 0 auto;
+  align-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.aditi-slide-copy,
+.aditi-slide-visual,
+.aditi-slide-detail {
+  min-width: 0;
+}
+
+.aditi-slide-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.aditi-slide-visual {
+  position: relative;
+  z-index: 1;
+}
+
+.aditi-slide-visual > * {
+  width: 100%;
+}
+
+.aditi-slide-detail .aditi-presentation-points {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.aditi-slide-detail .aditi-presentation-point {
+  background: rgba(8, 17, 31, 0.68);
+  padding: 12px;
+}
+
+/* SLIDE 1 — CINEMATIC INTRODUCTION */
+
+.aditi-layout-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.aditi-hero-heading {
+  width: 100%;
+}
+
+.aditi-layout-hero .aditi-presentation-eyebrow {
+  margin-bottom: 12px;
+}
+
+.aditi-layout-hero .aditi-presentation-title {
+  font-size: clamp(56px, 8vw, 108px);
+  letter-spacing: 10px;
+  line-height: 1;
+}
+
+.aditi-layout-hero .aditi-presentation-subtitle {
+  margin: 12px 0 0;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.aditi-hero-visual {
+  width: min(100%, 330px);
+}
+
+.aditi-hero-visual .aditi-eye-system {
+  width: 100%;
+}
+
+.aditi-hero-description {
+  max-width: 730px;
+  margin: 0;
+  color: #c3b7d2;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.aditi-layout-hero .aditi-presentation-points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.aditi-layout-hero .aditi-presentation-point {
+  padding: 9px 12px;
+  font-size: 10px;
+  background: rgba(0, 231, 238, 0.045);
+}
+
+/* SLIDE 2 — PROBLEM / ASYMMETRIC */
+
+.aditi-layout-problem {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 50px;
+}
+
+.aditi-layout-problem .aditi-presentation-title {
+  color: #ffb6d5;
+}
+
+.aditi-layout-problem .aditi-presentation-points {
+  grid-template-columns: 1fr;
+}
+
+.aditi-layout-problem .aditi-presentation-point {
+  border-left: 3px solid #ff007a;
+}
+
+.aditi-layout-problem .aditi-slide-visual {
+  transform: rotate(-1deg);
+}
+
+/* SLIDE 3 — SOLUTION / VISUAL FIRST */
+
+.aditi-layout-solution {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+}
+
+.aditi-layout-solution .aditi-slide-visual {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.aditi-layout-solution .aditi-slide-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.aditi-layout-solution .aditi-presentation-point {
+  border-color: rgba(0, 231, 238, 0.28);
+}
+
+/* SLIDE 4 — ARCHITECTURE / FULL-WIDTH */
+
+.aditi-layout-architecture {
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.aditi-layout-architecture .aditi-slide-copy {
+  text-align: center;
+}
+
+.aditi-layout-architecture .aditi-presentation-body {
+  margin: 12px auto;
+}
+
+.aditi-layout-architecture .aditi-slide-visual {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.aditi-layout-architecture .aditi-slide-visual .aditi-hologram-panel {
+  min-height: 310px;
+}
+
+/* SLIDES 5–6 — HARDWARE SHOWCASE */
+
+.aditi-layout-hardware {
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: 30px;
+}
+
+.aditi-layout-hardware .aditi-slide-visual {
+  min-height: 350px;
+}
+
+.aditi-layout-hardware .aditi-slide-detail {
+  grid-column: 1 / -1;
+}
+
+.aditi-layout-hardware .aditi-presentation-demo {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 0;
+}
+
+/* SLIDE 7 — MISSION CONTROL */
+
+.aditi-layout-mission {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+.aditi-layout-mission .aditi-slide-detail,
+.aditi-layout-mission .aditi-presentation-demo {
+  grid-column: 1 / -1;
+}
+
+.aditi-layout-mission .aditi-presentation-demo {
+  justify-self: center;
+  margin-top: 0;
+}
+
+/* SLIDES 8–9 — PERFORMANCE COMMAND CENTER */
+
+.aditi-layout-metrics {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  gap: 22px;
+}
+
+.aditi-layout-metrics .aditi-slide-detail,
+.aditi-layout-metrics .aditi-presentation-demo {
+  grid-column: 1 / -1;
+}
+
+.aditi-layout-metrics .aditi-presentation-demo {
+  justify-self: center;
+  margin-top: 0;
+}
+
+.aditi-layout-metrics .aditi-presentation-point {
+  border-top: 2px solid #00e7ee;
+  border-radius: 5px;
+}
+
+/* SLIDE 10 — FUTURE WORK */
+
+.aditi-layout-roadmap {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+}
+
+.aditi-layout-roadmap .aditi-presentation-points {
+  grid-template-columns: 1fr;
+}
+
+.aditi-layout-roadmap .aditi-presentation-point {
+  border-left: 2px solid #a78bfa;
+}
+
+/* SLIDE 11 — CINEMATIC CLOSING */
+
+.aditi-layout-closing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  text-align: center;
+}
+
+.aditi-closing-mark {
+  width: 110px;
+  height: 110px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid #00e7ee;
+  color: #00e7ee;
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 0 0 22px #00e7ee;
+  box-shadow:
+    0 0 32px rgba(0, 231, 238, 0.17),
+    inset 0 0 25px rgba(255, 0, 122, 0.13);
+}
+
+.aditi-layout-closing .aditi-presentation-body {
+  margin: 16px auto;
+}
+
+.aditi-layout-closing .aditi-presentation-points {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.aditi-layout-closing .aditi-presentation-point {
+  font-size: 11px;
+}
+
+/* EARLY THEME VARIATION
+   Full animated backgrounds come in Step 4.3. */
+
+.aditi-theme-problem {
+  background:
+    radial-gradient(ellipse at 75% 45%, rgba(255, 0, 122, 0.13), transparent 55%),
+    #080510;
+}
+
+.aditi-theme-solution,
+.aditi-theme-architecture {
+  background:
+    radial-gradient(ellipse at 48% 50%, rgba(0, 231, 238, 0.10), transparent 60%),
+    #080510;
+}
+
+.aditi-theme-hardware {
+  background:
+    radial-gradient(ellipse at 75% 35%, rgba(120, 80, 255, 0.15), transparent 55%),
+    #080510;
+}
+
+.aditi-theme-mission,
+.aditi-theme-metrics {
+  background:
+    radial-gradient(ellipse at 70% 45%, rgba(0, 180, 220, 0.12), transparent 58%),
+    #080510;
+}
+
+.aditi-theme-roadmap,
+.aditi-theme-closing {
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255, 0, 122, 0.10), transparent 60%),
+    #080510;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .aditi-presentation-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .aditi-layout-solution .aditi-slide-copy,
+  .aditi-layout-solution .aditi-slide-visual {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .aditi-layout-hardware .aditi-slide-detail,
+  .aditi-layout-mission .aditi-slide-detail,
+  .aditi-layout-metrics .aditi-slide-detail,
+  .aditi-layout-hardware .aditi-presentation-demo,
+  .aditi-layout-mission .aditi-presentation-demo,
+  .aditi-layout-metrics .aditi-presentation-demo {
+    grid-column: 1;
+  }
+
+  .aditi-slide-detail .aditi-presentation-points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .aditi-layout-hero .aditi-presentation-title {
+    font-size: clamp(48px, 10vw, 78px);
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-slide-detail .aditi-presentation-points {
+    grid-template-columns: 1fr;
+  }
+
+  .aditi-hero-visual {
+    width: min(100%, 280px);
+  }
+
+  .aditi-layout-hero .aditi-presentation-title {
+    letter-spacing: 5px;
+  }
+}
+
+@media (max-height: 780px) and (min-width: 901px) {
+  .aditi-hero-visual {
+    width: min(100%, 250px);
+  }
+
+  .aditi-presentation-content {
+    gap: 12px;
+  }
+
+  .aditi-slide-detail .aditi-presentation-point {
+    padding: 8px;
+  }
+}

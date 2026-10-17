@@ -1,0 +1,173 @@
+
+.aditi-startup {
+  position: fixed;
+  inset: 0;
+  z-index: 11000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at center,
+    #1d1235 0%,
+    #0c0716 55%,
+    #05030b 100%
+  );
+  color: #f5f0fa;
+  font-family: 'Space Mono', monospace;
+}
+
+.aditi-startup-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(0,231,238,0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,231,238,0.045) 1px,
+      transparent 1px
+    );
+  background-size: 48px 48px;
+  mask-image: radial-gradient(
+    circle,
+    black 15%,
+    transparent 85%
+  );
+}
+
+.aditi-startup-core {
+  position: relative;
+  width: min(45vw, 290px);
+  height: min(45vw, 290px);
+  min-width: 180px;
+  min-height: 180px;
+  display: grid;
+  place-items: center;
+}
+
+.aditi-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px rgba(0,231,238,0.15);
+}
+
+.aditi-ring-outer {
+  inset: 0;
+  border-top-color: #00e7ee;
+  border-bottom-color: #ff007a;
+  animation: aditi-spin 9s linear infinite;
+}
+
+.aditi-ring-middle {
+  inset: 12%;
+  border-left-color: #ff007a;
+  border-right-color: #00e7ee;
+  animation: aditi-spin-reverse 6s linear infinite;
+}
+
+.aditi-ring-inner {
+  inset: 25%;
+  border: 1px dashed #00e7ee;
+  animation: aditi-spin 12s linear infinite;
+}
+
+.aditi-core-center {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #00e7ee;
+  background: rgba(0,231,238,0.08);
+  box-shadow:
+    0 0 20px rgba(0,231,238,0.25),
+    inset 0 0 20px rgba(0,231,238,0.12);
+}
+
+.aditi-core-symbol {
+  font-size: 40px;
+  font-weight: bold;
+  color: #00e7ee;
+  text-shadow: 0 0 15px rgba(0,231,238,0.8);
+}
+
+.aditi-startup-info {
+  position: relative;
+  width: min(90%, 500px);
+  text-align: center;
+}
+
+.aditi-startup-label {
+  color: #a99db8;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 2px;
+}
+
+.aditi-startup-info h1 {
+  font-size: clamp(44px, 8vw, 76px);
+  letter-spacing: 12px;
+  margin: 15px 0;
+  color: #f5f0fa;
+  text-shadow: 0 0 25px rgba(255,0,122,0.4);
+}
+
+.aditi-startup-info p {
+  color: #00e7ee;
+  font-size: 11px;
+  letter-spacing: 1px;
+  min-height: 25px;
+}
+
+.aditi-progress-track {
+  width: 100%;
+  height: 4px;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.aditi-progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff007a,
+    #00e7ee
+  );
+  box-shadow: 0 0 12px #00e7ee;
+  transition: width 0.08s linear;
+}
+
+.aditi-progress-value {
+  margin-top: 12px;
+  color: #a99db8;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+@keyframes aditi-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes aditi-spin-reverse {
+  to { transform: rotate(-360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aditi-ring {
+    animation: none;
+  }
+
+  .aditi-progress-fill {
+    transition: none;
+  }
+}

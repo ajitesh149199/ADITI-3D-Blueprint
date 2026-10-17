@@ -1,0 +1,107 @@
+
+.aditi-engineering-hud {
+  position: relative;
+  width: 100%;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 231, 238, 0.35);
+  border-radius: 16px;
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 231, 238, 0.09),
+      transparent 65%
+    ),
+    linear-gradient(145deg, #101629, #090713);
+  box-shadow:
+    inset 0 0 35px rgba(0, 231, 238, 0.04),
+    0 0 24px rgba(0, 231, 238, 0.035);
+}
+
+.aditi-engineering-hud::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      rgba(0, 231, 238, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 231, 238, 0.035) 1px,
+      transparent 1px
+    );
+  background-size: 25px 25px;
+}
+
+.aditi-engineering-hud-header,
+.aditi-engineering-hud-bottom {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #00e7ee;
+  font-size: 10px;
+  letter-spacing: 1px;
+  line-height: 1.7;
+}
+
+.aditi-hud-indicator {
+  color: #ff6ba9;
+  white-space: nowrap;
+}
+
+.aditi-engineering-diagram {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 12px 0;
+}
+
+.aditi-engineering-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.aditi-engineering-connections {
+  animation: aditi-data-flow 2.5s linear infinite;
+}
+
+.aditi-engineering-hud-bottom {
+  color: #b2a5c0;
+  letter-spacing: 0;
+}
+
+@keyframes aditi-data-flow {
+  to {
+    stroke-dashoffset: -44;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aditi-engineering-connections {
+    animation: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .aditi-engineering-hud {
+    min-height: 290px;
+    padding: 12px;
+  }
+
+  .aditi-engineering-hud-header,
+  .aditi-engineering-hud-bottom {
+    font-size: 8px;
+  }
+}

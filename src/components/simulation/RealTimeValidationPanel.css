@@ -1,0 +1,185 @@
+
+.aditi-control-validation {
+  margin-top: 22px;
+  padding: 22px;
+  background: #120e20;
+  border: 1px solid #352448;
+  border-radius: 16px;
+  color: #f5efff;
+}
+
+.aditi-control-validation-header {
+  margin-bottom: 18px;
+}
+
+.aditi-control-validation-eyebrow {
+  color: #22d3ee;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.aditi-control-validation-header h2 {
+  margin: 6px 0;
+  font-size: 21px;
+}
+
+.aditi-control-validation-header p {
+  margin: 0;
+  color: #a99ab9;
+  font-size: 12px;
+}
+
+.aditi-control-validation-controls {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.aditi-control-validation-controls label {
+  display: flex;
+  flex: 1;
+  min-width: 200px;
+  flex-direction: column;
+  gap: 7px;
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-control-validation-controls select {
+  width: 100%;
+  padding: 11px;
+  background: #20162f;
+  color: #f5efff;
+  border: 1px solid #49335c;
+  border-radius: 8px;
+}
+
+.aditi-control-validation-controls button {
+  padding: 11px 16px;
+  background: #3d183c;
+  color: #ff9ad0;
+  border: 1px solid #f04caa;
+  border-radius: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.aditi-control-validation-controls button:hover:not(:disabled) {
+  background: #54204f;
+}
+
+.aditi-control-validation-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.aditi-control-validation-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.aditi-control-validation-stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  background: #1c152c;
+  border: 1px solid #382849;
+  border-radius: 10px;
+}
+
+.aditi-control-validation-stats span {
+  color: #ad9cbe;
+  font-size: 11px;
+}
+
+.aditi-control-validation-stats strong {
+  font-size: 22px;
+}
+
+.aditi-control-validation-stats .success {
+  color: #34d399;
+}
+
+.aditi-control-validation-stats .failure {
+  color: #fb7185;
+}
+
+.aditi-control-validation-results {
+  padding: 17px;
+  background: #1b142a;
+  border: 1px solid #382849;
+  border-radius: 12px;
+}
+
+.aditi-control-validation-results h3 {
+  margin: 0 0 16px;
+  font-size: 15px;
+}
+
+.aditi-control-validation-table-wrap {
+  max-height: 440px;
+  overflow: auto;
+  border: 1px solid #382849;
+  border-radius: 9px;
+}
+
+.aditi-control-validation-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.aditi-control-validation-table th,
+.aditi-control-validation-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #382849;
+}
+
+.aditi-control-validation-table th {
+  position: sticky;
+  top: 0;
+  background: #281b39;
+  color: #d8c6e8;
+}
+
+.aditi-control-validation-table td {
+  color: #b9abc9;
+}
+
+.aditi-control-test-pass {
+  color: #34d399;
+  font-weight: 700;
+}
+
+.aditi-control-test-fail {
+  color: #fb7185;
+  font-weight: 700;
+}
+
+.aditi-control-validation-error {
+  padding: 12px;
+  margin-bottom: 14px;
+  background: #391d30;
+  color: #fb7185;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.aditi-control-validation-note {
+  margin: 18px 0 0;
+  color: #9686a8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 750px) {
+  .aditi-control-validation-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
